@@ -1,4 +1,4 @@
-import * as influxdb from "@komminarlabs/influxdb";
+import * as influxdb from "@thulasirajkomminar/influxdb";
 
 export const orgId = influxdb.getOrganizationOutput({ name: "default" }).id;
 

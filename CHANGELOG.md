@@ -5,6 +5,14 @@ All notable changes to this project will automatically be documented in this fil
 The format is based on vKeep a Changelog(https://keepachangelog.com/en/1.0.0/),
 and this project adheres to vSemantic Versioning(https://semver.org/spec/v2.0.0.html).
 
+## v1.6.0 - 2025-10-29
+
+chore: moved the repo from org to personal account.
+
+> [!Important]
+>
+> The older versions of the provider are still available under the `komminarlabs` namespace on the Registry. But the new versions (`v1.6.0` and above) will be available under the `thulasirajkomminar` namespace. Please update your provider source accordingly in your configurations.
+
 ## v1.5.0 - 2025-07-02
 
 ### What's Changed

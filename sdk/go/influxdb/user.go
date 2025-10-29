@@ -8,13 +8,10 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Creates and manages a user with optional organization membership. Supports adding users as members or owners of organizations.
-//
-// **Note:** InfluxDB Cloud doesn't let you manage user passwords through the API. Use the InfluxDB Cloud user interface (UI) to update your password.
 type User struct {
 	pulumi.CustomResourceState
 

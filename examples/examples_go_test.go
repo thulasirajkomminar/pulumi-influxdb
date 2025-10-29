@@ -14,7 +14,7 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions()
 	baseGo := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"github.com/komminarlabs/pulumi-influxdb/sdk",
+			"github.com/thulasirajkomminar/pulumi-influxdb/sdk",
 		},
 	})
 

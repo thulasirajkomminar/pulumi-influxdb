@@ -47,41 +47,26 @@ class GetOrganizationResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> builtins.str:
-        """
-        Organization creation date.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> builtins.str:
-        """
-        The description of the organization.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> builtins.str:
-        """
-        An organization ID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
-        """
-        The name of the organization.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> builtins.str:
-        """
-        Last Organization update date.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -101,10 +86,7 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
 def get_organization(name: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
-    Retrieves an organization. Use this data source to retrieve information for a specific organization.
-
-
-    :param builtins.str name: The name of the organization.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -120,10 +102,7 @@ def get_organization(name: Optional[builtins.str] = None,
 def get_organization_output(name: Optional[pulumi.Input[builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
-    Retrieves an organization. Use this data source to retrieve information for a specific organization.
-
-
-    :param builtins.str name: The name of the organization.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

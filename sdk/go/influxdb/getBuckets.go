@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Lists buckets. InfluxDB retrieves buckets owned by the organization associated with the authorization (API token).
 func GetBuckets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetBucketsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBucketsResult

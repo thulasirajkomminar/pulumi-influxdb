@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates and manages a label.
- */
 export class Label extends pulumi.CustomResource {
     /**
      * Get an existing Label resource's state with the given name, ID, and optional extra

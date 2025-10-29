@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetLabels
     {
-        /// <summary>
-        /// List all labels.
-        /// </summary>
         public static Task<GetLabelsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabelsResult>("influxdb:index/getLabels:getLabels", InvokeArgs.Empty, options.WithDefaults());
 
-        /// <summary>
-        /// List all labels.
-        /// </summary>
         public static Output<GetLabelsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelsResult>("influxdb:index/getLabels:getLabels", InvokeArgs.Empty, options.WithDefaults());
 
-        /// <summary>
-        /// List all labels.
-        /// </summary>
         public static Output<GetLabelsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelsResult>("influxdb:index/getLabels:getLabels", InvokeArgs.Empty, options.WithDefaults());
     }

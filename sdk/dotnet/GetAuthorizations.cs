@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetAuthorizations
     {
-        /// <summary>
-        /// Lists all authorizations.
-        /// </summary>
         public static Task<GetAuthorizationsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationsResult>("influxdb:index/getAuthorizations:getAuthorizations", InvokeArgs.Empty, options.WithDefaults());
 
-        /// <summary>
-        /// Lists all authorizations.
-        /// </summary>
         public static Output<GetAuthorizationsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationsResult>("influxdb:index/getAuthorizations:getAuthorizations", InvokeArgs.Empty, options.WithDefaults());
 
-        /// <summary>
-        /// Lists all authorizations.
-        /// </summary>
         public static Output<GetAuthorizationsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationsResult>("influxdb:index/getAuthorizations:getAuthorizations", InvokeArgs.Empty, options.WithDefaults());
     }

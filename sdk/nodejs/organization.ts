@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates and manages new organization.
- */
 export class Organization extends pulumi.CustomResource {
     /**
      * Get an existing Organization resource's state with the given name, ID, and optional extra

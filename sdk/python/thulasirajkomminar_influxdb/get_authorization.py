@@ -66,89 +66,56 @@ class GetAuthorizationResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> builtins.str:
-        """
-        Authorization creation date.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> builtins.str:
-        """
-        A description of the token.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> builtins.str:
-        """
-        The authorization ID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def org(self) -> builtins.str:
-        """
-        Organization name. Specifies the organization that owns the authorization.
-        """
         return pulumi.get(self, "org")
 
     @property
     @pulumi.getter(name="orgId")
     def org_id(self) -> builtins.str:
-        """
-        An organization ID. Specifies the organization that owns the authorization.
-        """
         return pulumi.get(self, "org_id")
 
     @property
     @pulumi.getter
     def permissions(self) -> Sequence['outputs.GetAuthorizationPermissionResult']:
-        """
-        A list of permissions for an authorization.
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
-        """
-        Status of the token.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def token(self) -> builtins.str:
-        """
-        The API token.
-        """
         return pulumi.get(self, "token")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> builtins.str:
-        """
-        Last Authorization update date.
-        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter
     def user(self) -> builtins.str:
-        """
-        A user name. Specifies the user that the authorization is scoped to.
-        """
         return pulumi.get(self, "user")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> builtins.str:
-        """
-        A user ID. Specifies the user that the authorization is scoped to.
-        """
         return pulumi.get(self, "user_id")
 
 
@@ -174,10 +141,7 @@ class AwaitableGetAuthorizationResult(GetAuthorizationResult):
 def get_authorization(id: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationResult:
     """
-    Retrieves an authorization. Use this data source to retrieve information about an API token, including the token's permissions and the user that the token is scoped to.
-
-
-    :param builtins.str id: The authorization ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -199,10 +163,7 @@ def get_authorization(id: Optional[builtins.str] = None,
 def get_authorization_output(id: Optional[pulumi.Input[builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationResult]:
     """
-    Retrieves an authorization. Use this data source to retrieve information about an API token, including the token's permissions and the user that the token is scoped to.
-
-
-    :param builtins.str id: The authorization ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

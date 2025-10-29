@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetOrganization
     {
-        /// <summary>
-        /// Retrieves an organization. Use this data source to retrieve information for a specific organization.
-        /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("influxdb:index/getOrganization:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves an organization. Use this data source to retrieve information for a specific organization.
-        /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("influxdb:index/getOrganization:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves an organization. Use this data source to retrieve information for a specific organization.
-        /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("influxdb:index/getOrganization:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
     }
@@ -34,9 +25,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetOrganizationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the organization.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -48,9 +36,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetOrganizationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the organization.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -64,25 +49,10 @@ namespace KomminarLabs.InfluxDB
     [OutputType]
     public sealed class GetOrganizationResult
     {
-        /// <summary>
-        /// Organization creation date.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// The description of the organization.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// An organization ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the organization.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Last Organization update date.
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

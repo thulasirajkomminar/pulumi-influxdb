@@ -8,11 +8,8 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
-    /// <summary>
-    /// Creates and manages an authorization and returns the authorization with the generated API token. Use this resource to create/manage an authorization, which generates an API token with permissions to read or write to a specific resource or type of resource.
-    /// </summary>
     [InfluxDBResourceType("influxdb:index/authorization:Authorization")]
     public partial class Authorization : global::Pulumi.CustomResource
     {
@@ -99,7 +96,7 @@ namespace KomminarLabs.InfluxDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/komminarlabs",
+                PluginDownloadURL = "github://api.github.com/thulasirajkomminar",
                 AdditionalSecretOutputs =
                 {
                     "token",

@@ -1,7 +1,7 @@
 package main
 
 import (
-	influxdb "github.com/komminarlabs/pulumi-influxdb/provider"
+	influxdb "github.com/thulasirajkomminar/pulumi-influxdb/provider"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfgen"
 )

@@ -44,33 +44,21 @@ class GetLabelResult:
     @property
     @pulumi.getter
     def id(self) -> builtins.str:
-        """
-        The label ID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
-        """
-        The label name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="orgId")
     def org_id(self) -> builtins.str:
-        """
-        The organization ID.
-        """
         return pulumi.get(self, "org_id")
 
     @property
     @pulumi.getter
     def properties(self) -> Mapping[str, builtins.str]:
-        """
-        The key-value pairs associated with this label.
-        """
         return pulumi.get(self, "properties")
 
 
@@ -89,10 +77,7 @@ class AwaitableGetLabelResult(GetLabelResult):
 def get_label(id: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelResult:
     """
-    Retrieves a label with label ID.
-
-
-    :param builtins.str id: The label ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -107,10 +92,7 @@ def get_label(id: Optional[builtins.str] = None,
 def get_label_output(id: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabelResult]:
     """
-    Retrieves a label with label ID.
-
-
-    :param builtins.str id: The label ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

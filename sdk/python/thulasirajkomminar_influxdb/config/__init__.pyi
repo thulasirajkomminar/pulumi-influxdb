@@ -27,7 +27,7 @@ An InfluxDB token string
 
 url: Optional[str]
 """
-The InfluxDB Cloud Dedicated server URL
+The InfluxDB server URL
 """
 
 username: Optional[str]

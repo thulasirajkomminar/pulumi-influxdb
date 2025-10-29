@@ -1,6 +1,6 @@
 """A Python Pulumi program"""
 
-import komminarlabs_influxdb as influxdb
+import thulasirajkomminar_influxdb as influxdb
 
 org_id = influxdb.get_organization(name="default").id
 

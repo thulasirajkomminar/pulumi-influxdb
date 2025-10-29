@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a label with label ID.
- */
 export function getLabel(args: GetLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getLabel:getLabel", {
@@ -18,9 +15,6 @@ export function getLabel(args: GetLabelArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getLabel.
  */
 export interface GetLabelArgs {
-    /**
-     * The label ID.
-     */
     id: string;
 }
 
@@ -28,26 +22,11 @@ export interface GetLabelArgs {
  * A collection of values returned by getLabel.
  */
 export interface GetLabelResult {
-    /**
-     * The label ID.
-     */
     readonly id: string;
-    /**
-     * The label name.
-     */
     readonly name: string;
-    /**
-     * The organization ID.
-     */
     readonly orgId: string;
-    /**
-     * The key-value pairs associated with this label.
-     */
     readonly properties: {[key: string]: string};
 }
-/**
- * Retrieves a label with label ID.
- */
 export function getLabelOutput(args: GetLabelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getLabel:getLabel", {
@@ -59,8 +38,5 @@ export function getLabelOutput(args: GetLabelOutputArgs, opts?: pulumi.InvokeOut
  * A collection of arguments for invoking getLabel.
  */
 export interface GetLabelOutputArgs {
-    /**
-     * The label ID.
-     */
     id: pulumi.Input<string>;
 }

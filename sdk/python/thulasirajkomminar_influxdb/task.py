@@ -27,7 +27,8 @@ class TaskArgs:
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Task resource.
-        :param pulumi.Input[builtins.str] flux: The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        :param pulumi.Input[builtins.str] flux: The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+               executes.
         :param pulumi.Input[builtins.str] org_id: The organization ID. Specifies the organization that owns the task.
         :param pulumi.Input[builtins.str] status: The status of the task (`active` or `inactive`).
         """
@@ -40,7 +41,8 @@ class TaskArgs:
     @pulumi.getter
     def flux(self) -> pulumi.Input[builtins.str]:
         """
-        The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+        executes.
         """
         return pulumi.get(self, "flux")
 
@@ -100,12 +102,15 @@ class _TaskState:
         :param pulumi.Input[builtins.str] created_at: The timestamp when the task was created.
         :param pulumi.Input[builtins.str] cron: The Cron expression that defines the schedule on which the task runs.
         :param pulumi.Input[builtins.str] description: The description of the task.
-        :param pulumi.Input[builtins.str] every: The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
-        :param pulumi.Input[builtins.str] flux: The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        :param pulumi.Input[builtins.str] every: The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+               the task runs. every also determines when the task first runs, depending on the specified time.
+        :param pulumi.Input[builtins.str] flux: The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+               executes.
         :param pulumi.Input[Sequence[pulumi.Input['TaskLabelArgs']]] labels: The labels associated with the task.
         :param pulumi.Input[builtins.str] last_run_error: The error message from the last task run, if any.
         :param pulumi.Input[builtins.str] last_run_status: The status of the last task run.
-        :param pulumi.Input[builtins.str] latest_completed: A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+        :param pulumi.Input[builtins.str] latest_completed: A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+               the latest scheduled and completed run.
         :param pulumi.Input['TaskLinksArgs'] links: Links related to the task.
         :param pulumi.Input[builtins.str] name: The name of the task.
         :param pulumi.Input[builtins.str] offset: The duration to delay execution of the task after the scheduled time has elapsed. 0 removes the offset.
@@ -204,7 +209,8 @@ class _TaskState:
     @pulumi.getter
     def every(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+        The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+        the task runs. every also determines when the task first runs, depending on the specified time.
         """
         return pulumi.get(self, "every")
 
@@ -216,7 +222,8 @@ class _TaskState:
     @pulumi.getter
     def flux(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+        executes.
         """
         return pulumi.get(self, "flux")
 
@@ -264,7 +271,8 @@ class _TaskState:
     @pulumi.getter(name="latestCompleted")
     def latest_completed(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+        A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+        the latest scheduled and completed run.
         """
         return pulumi.get(self, "latest_completed")
 
@@ -380,63 +388,11 @@ class Task(pulumi.CustomResource):
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Creates and manages a task using Flux scripts with task options.
-
-        ## Task Configuration
-
-        Tasks are configured using Flux scripts that include an `option task` block. All task configuration, including scheduling, is defined within the Flux script itself. For more information on Flux scripts and task options, refer to the [InfluxDB documentation on tasks](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task).
-
-        ### Task Options in Flux
-
-        The Flux script must include an `option task` block that defines the task's behavior. For detailed information about all available task options, see the [InfluxDB documentation on defining task options](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#define-task-options).
-
-        **Example configuration with cron scheduling:**
-
-        ```python
-        import pulumi
-        import komminarlabs_influxdb as influxdb
-
-        example_cron = influxdb.Task("example_cron",
-            org_id=org_id,
-            flux=\"\"\"option task = {
-          name: "Daily Processing Task",
-          cron: "0 0 * * *",        # Run daily at midnight
-          offset: 30s,              # Delay execution by 30 seconds
-        }
-            
-        from(bucket: "my-bucket")
-          |> range(start: -24h)
-          |> filter(fn: (r) => r._measurement == "temperature")
-          |> mean()
-          |> to(bucket: "daily-averages")
-        \"\"\")
-        ```
-
-        **Example configuration with interval scheduling:**
-
-        ```python
-        import pulumi
-        import komminarlabs_influxdb as influxdb
-
-        example_interval = influxdb.Task("example_interval",
-            org_id=org_id,
-            flux=\"\"\"option task = {
-          name: "Hourly Processing Task",
-          every: 1h,                # Run every hour
-          offset: 10m,              # Start 10 minutes into each hour
-        }
-            
-        from(bucket: "my-bucket")
-          |> range(start: -1h)
-          |> filter(fn: (r) => r._measurement == "cpu")
-          |> mean()
-          |> to(bucket: "hourly-stats")
-        \"\"\")
-        ```
-
+        Create a Task resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] flux: The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        :param pulumi.Input[builtins.str] flux: The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+               executes.
         :param pulumi.Input[builtins.str] org_id: The organization ID. Specifies the organization that owns the task.
         :param pulumi.Input[builtins.str] status: The status of the task (`active` or `inactive`).
         """
@@ -447,60 +403,7 @@ class Task(pulumi.CustomResource):
                  args: TaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages a task using Flux scripts with task options.
-
-        ## Task Configuration
-
-        Tasks are configured using Flux scripts that include an `option task` block. All task configuration, including scheduling, is defined within the Flux script itself. For more information on Flux scripts and task options, refer to the [InfluxDB documentation on tasks](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task).
-
-        ### Task Options in Flux
-
-        The Flux script must include an `option task` block that defines the task's behavior. For detailed information about all available task options, see the [InfluxDB documentation on defining task options](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#define-task-options).
-
-        **Example configuration with cron scheduling:**
-
-        ```python
-        import pulumi
-        import komminarlabs_influxdb as influxdb
-
-        example_cron = influxdb.Task("example_cron",
-            org_id=org_id,
-            flux=\"\"\"option task = {
-          name: "Daily Processing Task",
-          cron: "0 0 * * *",        # Run daily at midnight
-          offset: 30s,              # Delay execution by 30 seconds
-        }
-            
-        from(bucket: "my-bucket")
-          |> range(start: -24h)
-          |> filter(fn: (r) => r._measurement == "temperature")
-          |> mean()
-          |> to(bucket: "daily-averages")
-        \"\"\")
-        ```
-
-        **Example configuration with interval scheduling:**
-
-        ```python
-        import pulumi
-        import komminarlabs_influxdb as influxdb
-
-        example_interval = influxdb.Task("example_interval",
-            org_id=org_id,
-            flux=\"\"\"option task = {
-          name: "Hourly Processing Task",
-          every: 1h,                # Run every hour
-          offset: 10m,              # Start 10 minutes into each hour
-        }
-            
-        from(bucket: "my-bucket")
-          |> range(start: -1h)
-          |> filter(fn: (r) => r._measurement == "cpu")
-          |> mean()
-          |> to(bucket: "hourly-stats")
-        \"\"\")
-        ```
-
+        Create a Task resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -589,12 +492,15 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_at: The timestamp when the task was created.
         :param pulumi.Input[builtins.str] cron: The Cron expression that defines the schedule on which the task runs.
         :param pulumi.Input[builtins.str] description: The description of the task.
-        :param pulumi.Input[builtins.str] every: The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
-        :param pulumi.Input[builtins.str] flux: The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        :param pulumi.Input[builtins.str] every: The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+               the task runs. every also determines when the task first runs, depending on the specified time.
+        :param pulumi.Input[builtins.str] flux: The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+               executes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskLabelArgs', 'TaskLabelArgsDict']]]] labels: The labels associated with the task.
         :param pulumi.Input[builtins.str] last_run_error: The error message from the last task run, if any.
         :param pulumi.Input[builtins.str] last_run_status: The status of the last task run.
-        :param pulumi.Input[builtins.str] latest_completed: A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+        :param pulumi.Input[builtins.str] latest_completed: A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+               the latest scheduled and completed run.
         :param pulumi.Input[Union['TaskLinksArgs', 'TaskLinksArgsDict']] links: Links related to the task.
         :param pulumi.Input[builtins.str] name: The name of the task.
         :param pulumi.Input[builtins.str] offset: The duration to delay execution of the task after the scheduled time has elapsed. 0 removes the offset.
@@ -664,7 +570,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def every(self) -> pulumi.Output[builtins.str]:
         """
-        The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+        The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+        the task runs. every also determines when the task first runs, depending on the specified time.
         """
         return pulumi.get(self, "every")
 
@@ -672,7 +579,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def flux(self) -> pulumi.Output[builtins.str]:
         """
-        The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+        executes.
         """
         return pulumi.get(self, "flux")
 
@@ -704,7 +612,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="latestCompleted")
     def latest_completed(self) -> pulumi.Output[builtins.str]:
         """
-        A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+        A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+        the latest scheduled and completed run.
         """
         return pulumi.get(self, "latest_completed")
 

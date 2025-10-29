@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetLabel
     {
-        /// <summary>
-        /// Retrieves a label with label ID.
-        /// </summary>
         public static Task<GetLabelResult> InvokeAsync(GetLabelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabelResult>("influxdb:index/getLabel:getLabel", args ?? new GetLabelArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a label with label ID.
-        /// </summary>
         public static Output<GetLabelResult> Invoke(GetLabelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelResult>("influxdb:index/getLabel:getLabel", args ?? new GetLabelInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a label with label ID.
-        /// </summary>
         public static Output<GetLabelResult> Invoke(GetLabelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelResult>("influxdb:index/getLabel:getLabel", args ?? new GetLabelInvokeArgs(), options.WithDefaults());
     }
@@ -34,9 +25,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetLabelArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The label ID.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -48,9 +36,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetLabelInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The label ID.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -64,21 +49,9 @@ namespace KomminarLabs.InfluxDB
     [OutputType]
     public sealed class GetLabelResult
     {
-        /// <summary>
-        /// The label ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The label name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The organization ID.
-        /// </summary>
         public readonly string OrgId;
-        /// <summary>
-        /// The key-value pairs associated with this label.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Properties;
 
         [OutputConstructor]

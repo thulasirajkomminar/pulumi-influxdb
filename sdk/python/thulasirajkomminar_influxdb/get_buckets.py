@@ -62,7 +62,7 @@ class AwaitableGetBucketsResult(GetBucketsResult):
 
 def get_buckets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketsResult:
     """
-    Lists buckets. InfluxDB retrieves buckets owned by the organization associated with the authorization (API token).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -73,7 +73,7 @@ def get_buckets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuck
         id=pulumi.get(__ret__, 'id'))
 def get_buckets_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketsResult]:
     """
-    Lists buckets. InfluxDB retrieves buckets owned by the organization associated with the authorization (API token).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

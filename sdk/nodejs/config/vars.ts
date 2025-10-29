@@ -30,7 +30,7 @@ Object.defineProperty(exports, "token", {
 });
 
 /**
- * The InfluxDB Cloud Dedicated server URL
+ * The InfluxDB server URL
  */
 export declare const url: string | undefined;
 Object.defineProperty(exports, "url", {

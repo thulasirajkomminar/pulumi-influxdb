@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Lists organizations. InfluxDB returns all organizations.
- */
 export function getOrganizations(opts?: pulumi.InvokeOptions): Promise<GetOrganizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getOrganizations:getOrganizations", {
@@ -25,9 +22,6 @@ export interface GetOrganizationsResult {
     readonly id: string;
     readonly organizations: outputs.GetOrganizationsOrganization[];
 }
-/**
- * Lists organizations. InfluxDB returns all organizations.
- */
 export function getOrganizationsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getOrganizations:getOrganizations", {

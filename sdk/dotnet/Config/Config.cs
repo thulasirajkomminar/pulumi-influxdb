@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class Config
     {
@@ -54,7 +54,7 @@ namespace KomminarLabs.InfluxDB
 
         private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url"));
         /// <summary>
-        /// The InfluxDB Cloud Dedicated server URL
+        /// The InfluxDB server URL
         /// </summary>
         public static string? Url
         {

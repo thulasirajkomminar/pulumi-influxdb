@@ -1,17 +1,17 @@
-module github.com/komminarlabs/pulumi-influxdb/examples
+module github.com/thulasirajkomminar/pulumi-influxdb/examples
 
 go 1.23.0
 
 require (
-	github.com/komminarlabs/pulumi-influxdb/sdk v0.0.0-20250125100118-53407e09ef88
+	github.com/thulasirajkomminar/pulumi-influxdb/sdk v0.0.0-20250125100118-53407e09ef88
 	github.com/pulumi/pulumi/pkg/v3 v3.153.1
 	github.com/pulumi/pulumi/sdk/v3 v3.153.1
 )
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250530111747-935112552988
-	github.com/komminarlabs/pulumi-influxdb/provider => ../provider
-	github.com/komminarlabs/terraform-provider-influxdb/shim => ../provider/shim
+	github.com/thulasirajkomminar/pulumi-influxdb/provider => ../provider
+	github.com/thulasirajkomminar/terraform-provider-influxdb/shim => ../provider/shim
 )
 
 require (

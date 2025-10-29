@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Lists buckets. InfluxDB retrieves buckets owned by the organization associated with the authorization (API token).
- */
 export function getBuckets(opts?: pulumi.InvokeOptions): Promise<GetBucketsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getBuckets:getBuckets", {
@@ -25,9 +22,6 @@ export interface GetBucketsResult {
      */
     readonly id: string;
 }
-/**
- * Lists buckets. InfluxDB retrieves buckets owned by the organization associated with the authorization (API token).
- */
 export function getBucketsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBucketsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getBuckets:getBuckets", {

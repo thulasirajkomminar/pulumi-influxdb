@@ -7,8 +7,8 @@ import (
 	"path"
 
 	// Import custom shim
-	"github.com/komminarlabs/pulumi-influxdb/provider/pkg/version"
-	influxdbshim "github.com/komminarlabs/terraform-provider-influxdb/shim"
+	"github.com/thulasirajkomminar/pulumi-influxdb/provider/pkg/version"
+	influxdbshim "github.com/thulasirajkomminar/terraform-provider-influxdb/v2/shim"
 
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -34,16 +34,16 @@ func Provider() tfbridge.ProviderInfo {
 		P:                 pfbridge.ShimProvider(influxdbshim.NewProvider(version.Version)),
 		Name:              "influxdb",
 		DisplayName:       "InfluxDB",
-		Publisher:         "komminarlabs",
+		Publisher:         "thulasirajkomminar",
 		Version:           version.Version,
 		LogoURL:           "https://avatars.githubusercontent.com/u/5713248?s=200&v=4",
-		PluginDownloadURL: "github://api.github.com/komminarlabs",
+		PluginDownloadURL: "github://api.github.com/thulasirajkomminar",
 		Description:       "A Pulumi package for creating and managing InfluxDB resources.",
 		Keywords:          []string{"pulumi", "influxdb", "category/database"},
 		License:           "Apache-2.0",
 		Homepage:          "https://www.influxdata.com",
-		Repository:        "https://github.com/komminarlabs/pulumi-influxdb",
-		GitHubOrg:         "komminarlabs",
+		Repository:        "https://github.com/thulasirajkomminar/pulumi-influxdb",
+		GitHubOrg:         "thulasirajkomminar",
 		MetadataInfo:      tfbridge.NewProviderMetadata(bridgeMetadata),
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"influxdb_authorization": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Authorization")},
@@ -66,7 +66,7 @@ func Provider() tfbridge.ProviderInfo {
 			"influxdb_organizations":  {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getOrganizations")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			PackageName: "@komminarlabs/influxdb",
+			PackageName: "@thulasirajkomminar/influxdb",
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^3.0.0",
 			},
@@ -76,14 +76,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Python: &tfbridge.PythonInfo{
-			PackageName: "komminarlabs_influxdb",
+			PackageName: "thulasirajkomminar_influxdb",
 			Requires: map[string]string{
 				"pulumi": ">=3.0.0,<4.0.0",
 			},
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: path.Join(
-				fmt.Sprintf("github.com/komminarlabs/pulumi-%[1]s/sdk/", mainPkg),
+				fmt.Sprintf("github.com/thulasirajkomminar/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,
@@ -91,7 +91,7 @@ func Provider() tfbridge.ProviderInfo {
 			GenerateResourceContainerTypes: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
-			RootNamespace: "KomminarLabs",
+			RootNamespace: "ThulasirajKomminar",
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},

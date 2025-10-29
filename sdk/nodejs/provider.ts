@@ -34,7 +34,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly token!: pulumi.Output<string | undefined>;
     /**
-     * The InfluxDB Cloud Dedicated server URL
+     * The InfluxDB server URL
      */
     public readonly url!: pulumi.Output<string | undefined>;
     /**
@@ -87,7 +87,7 @@ export interface ProviderArgs {
      */
     token?: pulumi.Input<string>;
     /**
-     * The InfluxDB Cloud Dedicated server URL
+     * The InfluxDB server URL
      */
     url?: pulumi.Input<string>;
     /**

@@ -6,63 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Creates and manages a task using Flux scripts with task options.
- *
- * ## Task Configuration
- *
- * Tasks are configured using Flux scripts that include an `option task` block. All task configuration, including scheduling, is defined within the Flux script itself. For more information on Flux scripts and task options, refer to the [InfluxDB documentation on tasks](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task).
- *
- * ### Task Options in Flux
- *
- * The Flux script must include an `option task` block that defines the task's behavior. For detailed information about all available task options, see the [InfluxDB documentation on defining task options](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#define-task-options).
- *
- * **Example configuration with cron scheduling:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as influxdb from "@komminarlabs/influxdb";
- *
- * const exampleCron = new influxdb.Task("example_cron", {
- *     orgId: orgId,
- *     flux: `option task = {
- *   name: "Daily Processing Task",
- *   cron: "0 0 * * *",        # Run daily at midnight
- *   offset: 30s,              # Delay execution by 30 seconds
- * }
- *     
- * from(bucket: "my-bucket")
- *   |> range(start: -24h)
- *   |> filter(fn: (r) => r._measurement == "temperature")
- *   |> mean()
- *   |> to(bucket: "daily-averages")
- * `,
- * });
- * ```
- *
- * **Example configuration with interval scheduling:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as influxdb from "@komminarlabs/influxdb";
- *
- * const exampleInterval = new influxdb.Task("example_interval", {
- *     orgId: orgId,
- *     flux: `option task = {
- *   name: "Hourly Processing Task",
- *   every: 1h,                # Run every hour
- *   offset: 10m,              # Start 10 minutes into each hour
- * }
- *     
- * from(bucket: "my-bucket")
- *   |> range(start: -1h)
- *   |> filter(fn: (r) => r._measurement == "cpu")
- *   |> mean()
- *   |> to(bucket: "hourly-stats")
- * `,
- * });
- * ```
- */
 export class Task extends pulumi.CustomResource {
     /**
      * Get an existing Task resource's state with the given name, ID, and optional extra
@@ -108,11 +51,13 @@ export class Task extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
-     * The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+     * The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+     * the task runs. every also determines when the task first runs, depending on the specified time.
      */
     public /*out*/ readonly every!: pulumi.Output<string>;
     /**
-     * The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+     * The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+     * executes.
      */
     public readonly flux!: pulumi.Output<string>;
     /**
@@ -128,7 +73,8 @@ export class Task extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastRunStatus!: pulumi.Output<string>;
     /**
-     * A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+     * A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+     * the latest scheduled and completed run.
      */
     public /*out*/ readonly latestCompleted!: pulumi.Output<string>;
     /**
@@ -248,11 +194,13 @@ export interface TaskState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+     * The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+     * the task runs. every also determines when the task first runs, depending on the specified time.
      */
     every?: pulumi.Input<string>;
     /**
-     * The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+     * The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+     * executes.
      */
     flux?: pulumi.Input<string>;
     /**
@@ -268,7 +216,8 @@ export interface TaskState {
      */
     lastRunStatus?: pulumi.Input<string>;
     /**
-     * A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+     * A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+     * the latest scheduled and completed run.
      */
     latestCompleted?: pulumi.Input<string>;
     /**
@@ -310,7 +259,8 @@ export interface TaskState {
  */
 export interface TaskArgs {
     /**
-     * The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+     * The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+     * executes.
      */
     flux: pulumi.Input<string>;
     /**

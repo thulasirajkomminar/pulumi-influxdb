@@ -56,65 +56,41 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> builtins.str:
-        """
-        Bucket creation date.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> builtins.str:
-        """
-        A description of the bucket.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> builtins.str:
-        """
-        A Bucket ID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
-        """
-        A Bucket name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="orgId")
     def org_id(self) -> builtins.str:
-        """
-        An organization ID.
-        """
         return pulumi.get(self, "org_id")
 
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> builtins.int:
-        """
-        The duration in seconds for how long data will be kept in the database. `0` represents infinite retention.
-        """
         return pulumi.get(self, "retention_period")
 
     @property
     @pulumi.getter
     def type(self) -> builtins.str:
-        """
-        The Bucket type.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> builtins.str:
-        """
-        Last bucket update date.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -137,10 +113,7 @@ class AwaitableGetBucketResult(GetBucketResult):
 def get_bucket(name: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketResult:
     """
-    Retrieves a bucket. Use this data source to retrieve information for a specific bucket.
-
-
-    :param builtins.str name: A Bucket name.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -159,10 +132,7 @@ def get_bucket(name: Optional[builtins.str] = None,
 def get_bucket_output(name: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
-    Retrieves a bucket. Use this data source to retrieve information for a specific bucket.
-
-
-    :param builtins.str name: A Bucket name.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

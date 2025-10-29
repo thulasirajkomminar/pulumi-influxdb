@@ -1,4 +1,4 @@
-module github.com/komminarlabs/pulumi-influxdb/sdk
+module github.com/thulasirajkomminar/pulumi-influxdb/sdk
 
 go 1.23.1
 

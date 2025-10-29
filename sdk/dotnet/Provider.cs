@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     /// <summary>
     /// The provider type for the influxdb package. By default, resources use package-wide configuration
@@ -32,7 +32,7 @@ namespace KomminarLabs.InfluxDB
         public Output<string?> Token { get; private set; } = null!;
 
         /// <summary>
-        /// The InfluxDB Cloud Dedicated server URL
+        /// The InfluxDB server URL
         /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace KomminarLabs.InfluxDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/komminarlabs",
+                PluginDownloadURL = "github://api.github.com/thulasirajkomminar",
                 AdditionalSecretOutputs =
                 {
                     "password",
@@ -116,7 +116,7 @@ namespace KomminarLabs.InfluxDB
         }
 
         /// <summary>
-        /// The InfluxDB Cloud Dedicated server URL
+        /// The InfluxDB server URL
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

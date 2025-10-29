@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB.Inputs
+namespace ThulasirajKomminar.InfluxDB.Inputs
 {
 
     public sealed class AuthorizationPermissionResourceGetArgs : global::Pulumi.ResourceArgs

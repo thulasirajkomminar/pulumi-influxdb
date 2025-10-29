@@ -8,79 +8,8 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
-    /// <summary>
-    /// Creates and manages a task using Flux scripts with task options.
-    /// 
-    /// ## Task Configuration
-    /// 
-    /// Tasks are configured using Flux scripts that include an `option task` block. All task configuration, including scheduling, is defined within the Flux script itself. For more information on Flux scripts and task options, refer to the [InfluxDB documentation on tasks](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task).
-    /// 
-    /// ### Task Options in Flux
-    /// 
-    /// The Flux script must include an `option task` block that defines the task's behavior. For detailed information about all available task options, see the [InfluxDB documentation on defining task options](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#define-task-options).
-    /// 
-    /// **Example configuration with cron scheduling:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using InfluxDB = KomminarLabs.InfluxDB;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCron = new InfluxDB.Task("example_cron", new()
-    ///     {
-    ///         OrgId = orgId,
-    ///         Flux = @"option task = {
-    ///   name: ""Daily Processing Task"",
-    ///   cron: ""0 0 * * *"",        # Run daily at midnight
-    ///   offset: 30s,              # Delay execution by 30 seconds
-    /// }
-    ///     
-    /// from(bucket: ""my-bucket"")
-    ///   |&gt; range(start: -24h)
-    ///   |&gt; filter(fn: (r) =&gt; r._measurement == ""temperature"")
-    ///   |&gt; mean()
-    ///   |&gt; to(bucket: ""daily-averages"")
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// **Example configuration with interval scheduling:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using InfluxDB = KomminarLabs.InfluxDB;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleInterval = new InfluxDB.Task("example_interval", new()
-    ///     {
-    ///         OrgId = orgId,
-    ///         Flux = @"option task = {
-    ///   name: ""Hourly Processing Task"",
-    ///   every: 1h,                # Run every hour
-    ///   offset: 10m,              # Start 10 minutes into each hour
-    /// }
-    ///     
-    /// from(bucket: ""my-bucket"")
-    ///   |&gt; range(start: -1h)
-    ///   |&gt; filter(fn: (r) =&gt; r._measurement == ""cpu"")
-    ///   |&gt; mean()
-    ///   |&gt; to(bucket: ""hourly-stats"")
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [InfluxDBResourceType("influxdb:index/task:Task")]
     public partial class Task : global::Pulumi.CustomResource
     {
@@ -109,13 +38,15 @@ namespace KomminarLabs.InfluxDB
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+        /// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+        /// the task runs. every also determines when the task first runs, depending on the specified time.
         /// </summary>
         [Output("every")]
         public Output<string> Every { get; private set; } = null!;
 
         /// <summary>
-        /// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        /// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+        /// executes.
         /// </summary>
         [Output("flux")]
         public Output<string> Flux { get; private set; } = null!;
@@ -139,7 +70,8 @@ namespace KomminarLabs.InfluxDB
         public Output<string> LastRunStatus { get; private set; } = null!;
 
         /// <summary>
-        /// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+        /// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+        /// the latest scheduled and completed run.
         /// </summary>
         [Output("latestCompleted")]
         public Output<string> LatestCompleted { get; private set; } = null!;
@@ -215,7 +147,7 @@ namespace KomminarLabs.InfluxDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/komminarlabs",
+                PluginDownloadURL = "github://api.github.com/thulasirajkomminar",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -240,7 +172,8 @@ namespace KomminarLabs.InfluxDB
     public sealed class TaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        /// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+        /// executes.
         /// </summary>
         [Input("flux", required: true)]
         public Input<string> Flux { get; set; } = null!;
@@ -290,13 +223,15 @@ namespace KomminarLabs.InfluxDB
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+        /// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+        /// the task runs. every also determines when the task first runs, depending on the specified time.
         /// </summary>
         [Input("every")]
         public Input<string>? Every { get; set; }
 
         /// <summary>
-        /// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+        /// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+        /// executes.
         /// </summary>
         [Input("flux")]
         public Input<string>? Flux { get; set; }
@@ -326,7 +261,8 @@ namespace KomminarLabs.InfluxDB
         public Input<string>? LastRunStatus { get; set; }
 
         /// <summary>
-        /// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+        /// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+        /// the latest scheduled and completed run.
         /// </summary>
         [Input("latestCompleted")]
         public Input<string>? LatestCompleted { get; set; }

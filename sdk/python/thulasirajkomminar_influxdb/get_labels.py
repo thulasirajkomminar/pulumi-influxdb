@@ -17,24 +17,24 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
-    'GetTasksResult',
-    'AwaitableGetTasksResult',
-    'get_tasks',
-    'get_tasks_output',
+    'GetLabelsResult',
+    'AwaitableGetLabelsResult',
+    'get_labels',
+    'get_labels_output',
 ]
 
 @pulumi.output_type
-class GetTasksResult:
+class GetLabelsResult:
     """
-    A collection of values returned by getTasks.
+    A collection of values returned by getLabels.
     """
-    def __init__(__self__, id=None, tasks=None):
+    def __init__(__self__, id=None, labels=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if tasks and not isinstance(tasks, list):
-            raise TypeError("Expected argument 'tasks' to be a list")
-        pulumi.set(__self__, "tasks", tasks)
+        if labels and not isinstance(labels, list):
+            raise TypeError("Expected argument 'labels' to be a list")
+        pulumi.set(__self__, "labels", labels)
 
     @property
     @pulumi.getter
@@ -46,38 +46,38 @@ class GetTasksResult:
 
     @property
     @pulumi.getter
-    def tasks(self) -> Sequence['outputs.GetTasksTaskResult']:
-        return pulumi.get(self, "tasks")
+    def labels(self) -> Sequence['outputs.GetLabelsLabelResult']:
+        return pulumi.get(self, "labels")
 
 
-class AwaitableGetTasksResult(GetTasksResult):
+class AwaitableGetLabelsResult(GetLabelsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetTasksResult(
+        return GetLabelsResult(
             id=self.id,
-            tasks=self.tasks)
+            labels=self.labels)
 
 
-def get_tasks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTasksResult:
+def get_labels(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelsResult:
     """
-    List all tasks.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('influxdb:index/getTasks:getTasks', __args__, opts=opts, typ=GetTasksResult).value
+    __ret__ = pulumi.runtime.invoke('influxdb:index/getLabels:getLabels', __args__, opts=opts, typ=GetLabelsResult).value
 
-    return AwaitableGetTasksResult(
+    return AwaitableGetLabelsResult(
         id=pulumi.get(__ret__, 'id'),
-        tasks=pulumi.get(__ret__, 'tasks'))
-def get_tasks_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTasksResult]:
+        labels=pulumi.get(__ret__, 'labels'))
+def get_labels_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabelsResult]:
     """
-    List all tasks.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('influxdb:index/getTasks:getTasks', __args__, opts=opts, typ=GetTasksResult)
-    return __ret__.apply(lambda __response__: GetTasksResult(
+    __ret__ = pulumi.runtime.invoke_output('influxdb:index/getLabels:getLabels', __args__, opts=opts, typ=GetLabelsResult)
+    return __ret__.apply(lambda __response__: GetLabelsResult(
         id=pulumi.get(__response__, 'id'),
-        tasks=pulumi.get(__response__, 'tasks')))
+        labels=pulumi.get(__response__, 'labels')))

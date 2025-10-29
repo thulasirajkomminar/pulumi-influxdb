@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * List all tasks.
- */
 export function getTasks(opts?: pulumi.InvokeOptions): Promise<GetTasksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getTasks:getTasks", {
@@ -25,9 +22,6 @@ export interface GetTasksResult {
     readonly id: string;
     readonly tasks: outputs.GetTasksTask[];
 }
-/**
- * List all tasks.
- */
 export function getTasksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTasksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getTasks:getTasks", {

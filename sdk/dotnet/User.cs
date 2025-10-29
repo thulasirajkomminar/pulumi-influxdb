@@ -8,13 +8,8 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
-    /// <summary>
-    /// Creates and manages a user with optional organization membership. Supports adding users as members or owners of organizations.
-    /// 
-    /// **Note:** InfluxDB Cloud doesn't let you manage user passwords through the API. Use the InfluxDB Cloud user interface (UI) to update your password.
-    /// </summary>
     [InfluxDBResourceType("influxdb:index/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
@@ -71,7 +66,7 @@ namespace KomminarLabs.InfluxDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/komminarlabs",
+                PluginDownloadURL = "github://api.github.com/thulasirajkomminar",
                 AdditionalSecretOutputs =
                 {
                     "password",

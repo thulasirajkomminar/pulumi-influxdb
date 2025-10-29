@@ -38,7 +38,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def url(self) -> Optional[str]:
         """
-        The InfluxDB Cloud Dedicated server URL
+        The InfluxDB server URL
         """
         return __config__.get('url')
 

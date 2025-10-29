@@ -1,5 +1,5 @@
 PACK := influxdb
-ORG := komminarlabs
+ORG := thulasirajkomminar
 PROJECT := github.com/$(ORG)/pulumi-$(PACK)
 PROVIDER_PATH := provider
 VERSION_PATH := $(PROVIDER_PATH)/pkg/version.Version
@@ -14,7 +14,7 @@ PULUMI_MISSING_DOCS_ERROR := true
 
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
-PROVIDER_VERSION=1.5.0
+PROVIDER_VERSION=1.6.0
 
 # Check version doesn't start with a "v" - this is a common mistake
 ifeq ($(shell echo $(PROVIDER_VERSION) | cut -c1),v)

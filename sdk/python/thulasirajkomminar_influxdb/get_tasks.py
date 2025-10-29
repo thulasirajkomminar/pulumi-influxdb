@@ -17,24 +17,24 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
-    'GetUsersResult',
-    'AwaitableGetUsersResult',
-    'get_users',
-    'get_users_output',
+    'GetTasksResult',
+    'AwaitableGetTasksResult',
+    'get_tasks',
+    'get_tasks_output',
 ]
 
 @pulumi.output_type
-class GetUsersResult:
+class GetTasksResult:
     """
-    A collection of values returned by getUsers.
+    A collection of values returned by getTasks.
     """
-    def __init__(__self__, id=None, users=None):
+    def __init__(__self__, id=None, tasks=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if users and not isinstance(users, list):
-            raise TypeError("Expected argument 'users' to be a list")
-        pulumi.set(__self__, "users", users)
+        if tasks and not isinstance(tasks, list):
+            raise TypeError("Expected argument 'tasks' to be a list")
+        pulumi.set(__self__, "tasks", tasks)
 
     @property
     @pulumi.getter
@@ -46,38 +46,38 @@ class GetUsersResult:
 
     @property
     @pulumi.getter
-    def users(self) -> Sequence['outputs.GetUsersUserResult']:
-        return pulumi.get(self, "users")
+    def tasks(self) -> Sequence['outputs.GetTasksTaskResult']:
+        return pulumi.get(self, "tasks")
 
 
-class AwaitableGetUsersResult(GetUsersResult):
+class AwaitableGetTasksResult(GetTasksResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetUsersResult(
+        return GetTasksResult(
             id=self.id,
-            users=self.users)
+            tasks=self.tasks)
 
 
-def get_users(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
+def get_tasks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTasksResult:
     """
-    List all users.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('influxdb:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
+    __ret__ = pulumi.runtime.invoke('influxdb:index/getTasks:getTasks', __args__, opts=opts, typ=GetTasksResult).value
 
-    return AwaitableGetUsersResult(
+    return AwaitableGetTasksResult(
         id=pulumi.get(__ret__, 'id'),
-        users=pulumi.get(__ret__, 'users'))
-def get_users_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
+        tasks=pulumi.get(__ret__, 'tasks'))
+def get_tasks_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTasksResult]:
     """
-    List all users.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('influxdb:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
-    return __ret__.apply(lambda __response__: GetUsersResult(
+    __ret__ = pulumi.runtime.invoke_output('influxdb:index/getTasks:getTasks', __args__, opts=opts, typ=GetTasksResult)
+    return __ret__.apply(lambda __response__: GetTasksResult(
         id=pulumi.get(__response__, 'id'),
-        users=pulumi.get(__response__, 'users')))
+        tasks=pulumi.get(__response__, 'tasks')))

@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Lists all authorizations.
- */
 export function getAuthorizations(opts?: pulumi.InvokeOptions): Promise<GetAuthorizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getAuthorizations:getAuthorizations", {
@@ -25,9 +22,6 @@ export interface GetAuthorizationsResult {
      */
     readonly id: string;
 }
-/**
- * Lists all authorizations.
- */
 export function getAuthorizationsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getAuthorizations:getAuthorizations", {

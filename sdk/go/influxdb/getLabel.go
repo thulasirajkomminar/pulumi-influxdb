@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Retrieves a label with label ID.
 func LookupLabel(ctx *pulumi.Context, args *LookupLabelArgs, opts ...pulumi.InvokeOption) (*LookupLabelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLabelResult
@@ -24,19 +23,14 @@ func LookupLabel(ctx *pulumi.Context, args *LookupLabelArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getLabel.
 type LookupLabelArgs struct {
-	// The label ID.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getLabel.
 type LookupLabelResult struct {
-	// The label ID.
-	Id string `pulumi:"id"`
-	// The label name.
-	Name string `pulumi:"name"`
-	// The organization ID.
-	OrgId string `pulumi:"orgId"`
-	// The key-value pairs associated with this label.
+	Id         string            `pulumi:"id"`
+	Name       string            `pulumi:"name"`
+	OrgId      string            `pulumi:"orgId"`
 	Properties map[string]string `pulumi:"properties"`
 }
 
@@ -51,7 +45,6 @@ func LookupLabelOutput(ctx *pulumi.Context, args LookupLabelOutputArgs, opts ...
 
 // A collection of arguments for invoking getLabel.
 type LookupLabelOutputArgs struct {
-	// The label ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -74,22 +67,18 @@ func (o LookupLabelResultOutput) ToLookupLabelResultOutputWithContext(ctx contex
 	return o
 }
 
-// The label ID.
 func (o LookupLabelResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLabelResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The label name.
 func (o LookupLabelResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLabelResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The organization ID.
 func (o LookupLabelResultOutput) OrgId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLabelResult) string { return v.OrgId }).(pulumi.StringOutput)
 }
 
-// The key-value pairs associated with this label.
 func (o LookupLabelResultOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLabelResult) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }

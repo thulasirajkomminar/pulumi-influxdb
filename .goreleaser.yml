@@ -22,7 +22,7 @@ builds:
     ldflags:
       - -s
       - -w
-      - -X github.com/komminarlabs/pulumi-influxdb/provider/pkg/version.Version={{.Tag }}
+      - -X github.com/thulasirajkomminar/pulumi-influxdb/provider/pkg/version.Version={{.Tag }}
     main: ./cmd/pulumi-resource-influxdb/
 release:
   disable: false

@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Retrieves an authorization. Use this data source to retrieve information about an API token, including the token's permissions and the user that the token is scoped to.
 func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthorizationResult
@@ -24,34 +23,22 @@ func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opt
 
 // A collection of arguments for invoking getAuthorization.
 type LookupAuthorizationArgs struct {
-	// The authorization ID.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getAuthorization.
 type LookupAuthorizationResult struct {
-	// Authorization creation date.
-	CreatedAt string `pulumi:"createdAt"`
-	// A description of the token.
-	Description string `pulumi:"description"`
-	// The authorization ID.
-	Id string `pulumi:"id"`
-	// Organization name. Specifies the organization that owns the authorization.
-	Org string `pulumi:"org"`
-	// An organization ID. Specifies the organization that owns the authorization.
-	OrgId string `pulumi:"orgId"`
-	// A list of permissions for an authorization.
+	CreatedAt   string                       `pulumi:"createdAt"`
+	Description string                       `pulumi:"description"`
+	Id          string                       `pulumi:"id"`
+	Org         string                       `pulumi:"org"`
+	OrgId       string                       `pulumi:"orgId"`
 	Permissions []GetAuthorizationPermission `pulumi:"permissions"`
-	// Status of the token.
-	Status string `pulumi:"status"`
-	// The API token.
-	Token string `pulumi:"token"`
-	// Last Authorization update date.
-	UpdatedAt string `pulumi:"updatedAt"`
-	// A user name. Specifies the user that the authorization is scoped to.
-	User string `pulumi:"user"`
-	// A user ID. Specifies the user that the authorization is scoped to.
-	UserId string `pulumi:"userId"`
+	Status      string                       `pulumi:"status"`
+	Token       string                       `pulumi:"token"`
+	UpdatedAt   string                       `pulumi:"updatedAt"`
+	User        string                       `pulumi:"user"`
+	UserId      string                       `pulumi:"userId"`
 }
 
 func LookupAuthorizationOutput(ctx *pulumi.Context, args LookupAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizationResultOutput {
@@ -65,7 +52,6 @@ func LookupAuthorizationOutput(ctx *pulumi.Context, args LookupAuthorizationOutp
 
 // A collection of arguments for invoking getAuthorization.
 type LookupAuthorizationOutputArgs struct {
-	// The authorization ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -88,57 +74,46 @@ func (o LookupAuthorizationResultOutput) ToLookupAuthorizationResultOutputWithCo
 	return o
 }
 
-// Authorization creation date.
 func (o LookupAuthorizationResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A description of the token.
 func (o LookupAuthorizationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The authorization ID.
 func (o LookupAuthorizationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Organization name. Specifies the organization that owns the authorization.
 func (o LookupAuthorizationResultOutput) Org() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.Org }).(pulumi.StringOutput)
 }
 
-// An organization ID. Specifies the organization that owns the authorization.
 func (o LookupAuthorizationResultOutput) OrgId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.OrgId }).(pulumi.StringOutput)
 }
 
-// A list of permissions for an authorization.
 func (o LookupAuthorizationResultOutput) Permissions() GetAuthorizationPermissionArrayOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) []GetAuthorizationPermission { return v.Permissions }).(GetAuthorizationPermissionArrayOutput)
 }
 
-// Status of the token.
 func (o LookupAuthorizationResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The API token.
 func (o LookupAuthorizationResultOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.Token }).(pulumi.StringOutput)
 }
 
-// Last Authorization update date.
 func (o LookupAuthorizationResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// A user name. Specifies the user that the authorization is scoped to.
 func (o LookupAuthorizationResultOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.User }).(pulumi.StringOutput)
 }
 
-// A user ID. Specifies the user that the authorization is scoped to.
 func (o LookupAuthorizationResultOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.UserId }).(pulumi.StringOutput)
 }

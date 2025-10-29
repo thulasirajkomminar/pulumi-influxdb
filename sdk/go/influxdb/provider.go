@@ -7,8 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
 // The provider type for the influxdb package. By default, resources use package-wide configuration
@@ -22,7 +22,7 @@ type Provider struct {
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// An InfluxDB token string
 	Token pulumi.StringPtrOutput `pulumi:"token"`
-	// The InfluxDB Cloud Dedicated server URL
+	// The InfluxDB server URL
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 	// The InfluxDB username
 	Username pulumi.StringPtrOutput `pulumi:"username"`
@@ -60,7 +60,7 @@ type providerArgs struct {
 	Password *string `pulumi:"password"`
 	// An InfluxDB token string
 	Token *string `pulumi:"token"`
-	// The InfluxDB Cloud Dedicated server URL
+	// The InfluxDB server URL
 	Url *string `pulumi:"url"`
 	// The InfluxDB username
 	Username *string `pulumi:"username"`
@@ -72,7 +72,7 @@ type ProviderArgs struct {
 	Password pulumi.StringPtrInput
 	// An InfluxDB token string
 	Token pulumi.StringPtrInput
-	// The InfluxDB Cloud Dedicated server URL
+	// The InfluxDB server URL
 	Url pulumi.StringPtrInput
 	// The InfluxDB username
 	Username pulumi.StringPtrInput
@@ -148,7 +148,7 @@ func (o ProviderOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Token }).(pulumi.StringPtrOutput)
 }
 
-// The InfluxDB Cloud Dedicated server URL
+// The InfluxDB server URL
 func (o ProviderOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }

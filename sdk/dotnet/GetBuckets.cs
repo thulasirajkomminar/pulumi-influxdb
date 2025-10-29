@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetBuckets
     {
-        /// <summary>
-        /// Lists buckets. InfluxDB retrieves buckets owned by the organization associated with the authorization (API token).
-        /// </summary>
         public static Task<GetBucketsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBucketsResult>("influxdb:index/getBuckets:getBuckets", InvokeArgs.Empty, options.WithDefaults());
 
-        /// <summary>
-        /// Lists buckets. InfluxDB retrieves buckets owned by the organization associated with the authorization (API token).
-        /// </summary>
         public static Output<GetBucketsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketsResult>("influxdb:index/getBuckets:getBuckets", InvokeArgs.Empty, options.WithDefaults());
 
-        /// <summary>
-        /// Lists buckets. InfluxDB retrieves buckets owned by the organization associated with the authorization (API token).
-        /// </summary>
         public static Output<GetBucketsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketsResult>("influxdb:index/getBuckets:getBuckets", InvokeArgs.Empty, options.WithDefaults());
     }

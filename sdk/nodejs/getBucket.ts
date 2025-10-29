@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a bucket. Use this data source to retrieve information for a specific bucket.
- */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getBucket:getBucket", {
@@ -18,9 +15,6 @@ export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getBucket.
  */
 export interface GetBucketArgs {
-    /**
-     * A Bucket name.
-     */
     name: string;
 }
 
@@ -28,42 +22,15 @@ export interface GetBucketArgs {
  * A collection of values returned by getBucket.
  */
 export interface GetBucketResult {
-    /**
-     * Bucket creation date.
-     */
     readonly createdAt: string;
-    /**
-     * A description of the bucket.
-     */
     readonly description: string;
-    /**
-     * A Bucket ID.
-     */
     readonly id: string;
-    /**
-     * A Bucket name.
-     */
     readonly name: string;
-    /**
-     * An organization ID.
-     */
     readonly orgId: string;
-    /**
-     * The duration in seconds for how long data will be kept in the database. `0` represents infinite retention.
-     */
     readonly retentionPeriod: number;
-    /**
-     * The Bucket type.
-     */
     readonly type: string;
-    /**
-     * Last bucket update date.
-     */
     readonly updatedAt: string;
 }
-/**
- * Retrieves a bucket. Use this data source to retrieve information for a specific bucket.
- */
 export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBucketResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getBucket:getBucket", {
@@ -75,8 +42,5 @@ export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getBucket.
  */
 export interface GetBucketOutputArgs {
-    /**
-     * A Bucket name.
-     */
     name: pulumi.Input<string>;
 }

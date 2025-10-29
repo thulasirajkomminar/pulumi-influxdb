@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * List all users.
- */
 export function getUsers(opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getUsers:getUsers", {
@@ -25,9 +22,6 @@ export interface GetUsersResult {
     readonly id: string;
     readonly users: outputs.GetUsersUser[];
 }
-/**
- * List all users.
- */
 export function getUsersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getUsers:getUsers", {

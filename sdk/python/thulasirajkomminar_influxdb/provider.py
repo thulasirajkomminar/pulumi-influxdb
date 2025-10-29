@@ -28,7 +28,7 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[builtins.str] password: The InfluxDB password
         :param pulumi.Input[builtins.str] token: An InfluxDB token string
-        :param pulumi.Input[builtins.str] url: The InfluxDB Cloud Dedicated server URL
+        :param pulumi.Input[builtins.str] url: The InfluxDB server URL
         :param pulumi.Input[builtins.str] username: The InfluxDB username
         """
         if password is not None:
@@ -68,7 +68,7 @@ class ProviderArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The InfluxDB Cloud Dedicated server URL
+        The InfluxDB server URL
         """
         return pulumi.get(self, "url")
 
@@ -110,7 +110,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] password: The InfluxDB password
         :param pulumi.Input[builtins.str] token: An InfluxDB token string
-        :param pulumi.Input[builtins.str] url: The InfluxDB Cloud Dedicated server URL
+        :param pulumi.Input[builtins.str] url: The InfluxDB server URL
         :param pulumi.Input[builtins.str] username: The InfluxDB username
         """
         ...
@@ -185,7 +185,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The InfluxDB Cloud Dedicated server URL
+        The InfluxDB server URL
         """
         return pulumi.get(self, "url")
 

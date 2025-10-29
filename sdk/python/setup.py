@@ -18,7 +18,7 @@ def readme():
         return "influxdb Pulumi Package - Development Version"
 
 
-setup(name='komminarlabs_influxdb',
+setup(name='thulasirajkomminar_influxdb',
       python_requires='>=3.9',
       version=VERSION,
       description="A Pulumi package for creating and managing InfluxDB resources.",
@@ -27,12 +27,12 @@ setup(name='komminarlabs_influxdb',
       keywords='pulumi influxdb category/database',
       url='https://www.influxdata.com',
       project_urls={
-          'Repository': 'https://github.com/komminarlabs/pulumi-influxdb'
+          'Repository': 'https://github.com/thulasirajkomminar/pulumi-influxdb'
       },
       license='Apache-2.0',
       packages=find_packages(),
       package_data={
-          'komminarlabs_influxdb': [
+          'thulasirajkomminar_influxdb': [
               'py.typed',
               'pulumi-plugin.json',
           ]

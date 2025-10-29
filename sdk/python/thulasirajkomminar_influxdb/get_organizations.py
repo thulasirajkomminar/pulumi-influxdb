@@ -62,7 +62,7 @@ class AwaitableGetOrganizationsResult(GetOrganizationsResult):
 
 def get_organizations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationsResult:
     """
-    Lists organizations. InfluxDB returns all organizations.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -73,7 +73,7 @@ def get_organizations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
         organizations=pulumi.get(__ret__, 'organizations'))
 def get_organizations_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationsResult]:
     """
-    Lists organizations. InfluxDB returns all organizations.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

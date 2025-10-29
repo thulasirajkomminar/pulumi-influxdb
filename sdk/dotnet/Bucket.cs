@@ -8,11 +8,8 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
-    /// <summary>
-    /// Creates and manages a bucket.
-    /// </summary>
     [InfluxDBResourceType("influxdb:index/bucket:Bucket")]
     public partial class Bucket : global::Pulumi.CustomResource
     {
@@ -41,7 +38,8 @@ namespace KomminarLabs.InfluxDB
         public Output<string> OrgId { get; private set; } = null!;
 
         /// <summary>
-        /// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        /// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+        /// represents infinite retention.
         /// </summary>
         [Output("retentionPeriod")]
         public Output<int> RetentionPeriod { get; private set; } = null!;
@@ -81,7 +79,7 @@ namespace KomminarLabs.InfluxDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/komminarlabs",
+                PluginDownloadURL = "github://api.github.com/thulasirajkomminar",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -124,7 +122,8 @@ namespace KomminarLabs.InfluxDB
         public Input<string> OrgId { get; set; } = null!;
 
         /// <summary>
-        /// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        /// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+        /// represents infinite retention.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
@@ -168,7 +167,8 @@ namespace KomminarLabs.InfluxDB
         public Input<string>? OrgId { get; set; }
 
         /// <summary>
-        /// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        /// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+        /// represents infinite retention.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }

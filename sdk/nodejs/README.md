@@ -22,13 +22,13 @@ This package is available for several languages/platforms:
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
 ```bash
-npm install @komminarlabs/influxdb
+npm install @thulasirajkomminar/influxdb
 ```
 
 or `yarn`:
 
 ```bash
-yarn add @komminarlabs/influxdb
+yarn add @thulasirajkomminar/influxdb
 ```
 
 ### Python
@@ -36,7 +36,7 @@ yarn add @komminarlabs/influxdb
 To use from Python, install using `pip`:
 
 ```bash
-pip install komminarlabs_influxdb
+pip install thulasirajkomminar_influxdb
 ```
 
 ### Go
@@ -44,7 +44,7 @@ pip install komminarlabs_influxdb
 To use from Go, use `go get` to grab the latest version of the library:
 
 ```bash
-go get github.com/komminarlabs/pulumi-influxdb/sdk/go/...
+go get github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/...
 ```
 
 ### .NET
@@ -52,7 +52,7 @@ go get github.com/komminarlabs/pulumi-influxdb/sdk/go/...
 To use from .NET, install using `dotnet add package`:
 
 ```bash
-dotnet add package KomminarLabs.InfluxDB
+dotnet add package ThulasirajKomminar.InfluxDB
 ```
 
 ## Configuration
@@ -61,7 +61,7 @@ The following configuration points are available for the `influxdb` provider:
 
 - `influxdb:password` (environment: `INFLUXDB_PASSWORD`) - The InfluxDB password
 - `influxdb:token` (environment: `INFLUXDB_TOKEN`) - An InfluxDB token string
-- `influxdb:url` (environment: `INFLUXDB_URL`) - The InfluxDB Cloud Dedicated server URL
+- `influxdb:url` (environment: `INFLUXDB_URL`) - The InfluxDB server URL
 - `influxdb:username` (environment: `INFLUXDB_USERNAME`) - The InfluxDB username
 
 ## Authentication

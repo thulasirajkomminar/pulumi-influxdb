@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Retrieves a bucket. Use this data source to retrieve information for a specific bucket.
 func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBucketResult
@@ -24,28 +23,19 @@ func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getBucket.
 type LookupBucketArgs struct {
-	// A Bucket name.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getBucket.
 type LookupBucketResult struct {
-	// Bucket creation date.
-	CreatedAt string `pulumi:"createdAt"`
-	// A description of the bucket.
-	Description string `pulumi:"description"`
-	// A Bucket ID.
-	Id string `pulumi:"id"`
-	// A Bucket name.
-	Name string `pulumi:"name"`
-	// An organization ID.
-	OrgId string `pulumi:"orgId"`
-	// The duration in seconds for how long data will be kept in the database. `0` represents infinite retention.
-	RetentionPeriod int `pulumi:"retentionPeriod"`
-	// The Bucket type.
-	Type string `pulumi:"type"`
-	// Last bucket update date.
-	UpdatedAt string `pulumi:"updatedAt"`
+	CreatedAt       string `pulumi:"createdAt"`
+	Description     string `pulumi:"description"`
+	Id              string `pulumi:"id"`
+	Name            string `pulumi:"name"`
+	OrgId           string `pulumi:"orgId"`
+	RetentionPeriod int    `pulumi:"retentionPeriod"`
+	Type            string `pulumi:"type"`
+	UpdatedAt       string `pulumi:"updatedAt"`
 }
 
 func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts ...pulumi.InvokeOption) LookupBucketResultOutput {
@@ -59,7 +49,6 @@ func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts .
 
 // A collection of arguments for invoking getBucket.
 type LookupBucketOutputArgs struct {
-	// A Bucket name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -82,42 +71,34 @@ func (o LookupBucketResultOutput) ToLookupBucketResultOutputWithContext(ctx cont
 	return o
 }
 
-// Bucket creation date.
 func (o LookupBucketResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A description of the bucket.
 func (o LookupBucketResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// A Bucket ID.
 func (o LookupBucketResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A Bucket name.
 func (o LookupBucketResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An organization ID.
 func (o LookupBucketResultOutput) OrgId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketResult) string { return v.OrgId }).(pulumi.StringOutput)
 }
 
-// The duration in seconds for how long data will be kept in the database. `0` represents infinite retention.
 func (o LookupBucketResultOutput) RetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupBucketResult) int { return v.RetentionPeriod }).(pulumi.IntOutput)
 }
 
-// The Bucket type.
 func (o LookupBucketResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Last bucket update date.
 func (o LookupBucketResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

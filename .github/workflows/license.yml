@@ -51,4 +51,4 @@ jobs:
             github.com/pulumi,
             github.com/segmentio/asm,
             golang.org,
-            github.com/komminarlabs/terraform-provider-influxdb/shim
+            github.com/thulasirajkomminar/terraform-provider-influxdb/v2/shim

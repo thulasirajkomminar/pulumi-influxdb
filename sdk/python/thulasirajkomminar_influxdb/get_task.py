@@ -90,153 +90,96 @@ class GetTaskResult:
     @property
     @pulumi.getter(name="authorizationId")
     def authorization_id(self) -> builtins.str:
-        """
-        The authorization ID. Specifies the authorization used when the task communicates with the query engine.
-        """
         return pulumi.get(self, "authorization_id")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> builtins.str:
-        """
-        The timestamp when the task was created.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def cron(self) -> builtins.str:
-        """
-        The Cron expression that defines the schedule on which the task runs. InfluxDB uses the system time when evaluating Cron expressions.
-        """
         return pulumi.get(self, "cron")
 
     @property
     @pulumi.getter
     def description(self) -> builtins.str:
-        """
-        The description of the task.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def every(self) -> builtins.str:
-        """
-        The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
-        """
         return pulumi.get(self, "every")
 
     @property
     @pulumi.getter
     def flux(self) -> builtins.str:
-        """
-        The Flux script that the task executes.
-        """
         return pulumi.get(self, "flux")
 
     @property
     @pulumi.getter
     def id(self) -> builtins.str:
-        """
-        The task ID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def labels(self) -> Sequence['outputs.GetTaskLabelResult']:
-        """
-        The labels associated with the task.
-        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="lastRunError")
     def last_run_error(self) -> builtins.str:
-        """
-        The error message from the last task run, if any.
-        """
         return pulumi.get(self, "last_run_error")
 
     @property
     @pulumi.getter(name="lastRunStatus")
     def last_run_status(self) -> builtins.str:
-        """
-        The status of the last task run.
-        """
         return pulumi.get(self, "last_run_status")
 
     @property
     @pulumi.getter(name="latestCompleted")
     def latest_completed(self) -> builtins.str:
-        """
-        A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
-        """
         return pulumi.get(self, "latest_completed")
 
     @property
     @pulumi.getter
     def links(self) -> 'outputs.GetTaskLinksResult':
-        """
-        Links related to the task.
-        """
         return pulumi.get(self, "links")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
-        """
-        The name of the task.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def offset(self) -> builtins.str:
-        """
-        The duration to delay execution of the task after the scheduled time has elapsed. 0 removes the offset.
-        """
         return pulumi.get(self, "offset")
 
     @property
     @pulumi.getter
     def org(self) -> builtins.str:
-        """
-        The organization name. Specifies the organization that owns the task.
-        """
         return pulumi.get(self, "org")
 
     @property
     @pulumi.getter(name="orgId")
     def org_id(self) -> builtins.str:
-        """
-        The organization ID. Specifies the organization that owns the task.
-        """
         return pulumi.get(self, "org_id")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> builtins.str:
-        """
-        The user ID. Specifies the owner of the task.
-        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
-        """
-        The status of the task (`active` or `inactive`).
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> builtins.str:
-        """
-        The timestamp when the task was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -270,10 +213,7 @@ class AwaitableGetTaskResult(GetTaskResult):
 def get_task(id: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
-    List all task.
-
-
-    :param builtins.str id: The task ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -303,10 +243,7 @@ def get_task(id: Optional[builtins.str] = None,
 def get_task_output(id: Optional[pulumi.Input[builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskResult]:
     """
-    List all task.
-
-
-    :param builtins.str id: The task ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -50,49 +50,31 @@ class GetUserResult:
     @property
     @pulumi.getter
     def id(self) -> builtins.str:
-        """
-        The user ID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
-        """
-        The user name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="orgId")
     def org_id(self) -> builtins.str:
-        """
-        The organization ID that the user belongs to. Null if the user is not a member of any organization.
-        """
         return pulumi.get(self, "org_id")
 
     @property
     @pulumi.getter(name="orgRole")
     def org_role(self) -> builtins.str:
-        """
-        The role of the user in the organization (`member` or `owner`). Null if the user is not a member of any organization.
-        """
         return pulumi.get(self, "org_role")
 
     @property
     @pulumi.getter
     def password(self) -> builtins.str:
-        """
-        The password of the user. This will be always `null`.
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
-        """
-        The status of a user.
-        """
         return pulumi.get(self, "status")
 
 
@@ -113,10 +95,7 @@ class AwaitableGetUserResult(GetUserResult):
 def get_user(id: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Retrieves a user.
-
-
-    :param builtins.str id: The user ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -133,10 +112,7 @@ def get_user(id: Optional[builtins.str] = None,
 def get_user_output(id: Optional[pulumi.Input[builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
-    Retrieves a user.
-
-
-    :param builtins.str id: The user ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

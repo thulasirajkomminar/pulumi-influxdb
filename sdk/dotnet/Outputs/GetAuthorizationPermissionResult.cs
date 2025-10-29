@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB.Outputs
+namespace ThulasirajKomminar.InfluxDB.Outputs
 {
 
     [OutputType]

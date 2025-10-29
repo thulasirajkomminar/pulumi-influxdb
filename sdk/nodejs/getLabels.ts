@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * List all labels.
- */
 export function getLabels(opts?: pulumi.InvokeOptions): Promise<GetLabelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getLabels:getLabels", {
@@ -25,9 +22,6 @@ export interface GetLabelsResult {
     readonly id: string;
     readonly labels: outputs.GetLabelsLabel[];
 }
-/**
- * List all labels.
- */
 export function getLabelsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getLabels:getLabels", {

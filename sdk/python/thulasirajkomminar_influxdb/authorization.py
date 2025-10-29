@@ -303,8 +303,7 @@ class Authorization(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Creates and manages an authorization and returns the authorization with the generated API token. Use this resource to create/manage an authorization, which generates an API token with permissions to read or write to a specific resource or type of resource.
-
+        Create a Authorization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: A description of the token.
@@ -321,8 +320,7 @@ class Authorization(pulumi.CustomResource):
                  args: AuthorizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages an authorization and returns the authorization with the generated API token. Use this resource to create/manage an authorization, which generates an API token with permissions to read or write to a specific resource or type of resource.
-
+        Create a Authorization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AuthorizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

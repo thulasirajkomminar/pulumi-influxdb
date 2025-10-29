@@ -205,10 +205,7 @@ class User(pulumi.CustomResource):
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Creates and manages a user with optional organization membership. Supports adding users as members or owners of organizations.
-
-        **Note:** InfluxDB Cloud doesn't let you manage user passwords through the API. Use the InfluxDB Cloud user interface (UI) to update your password.
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The user name.
@@ -224,10 +221,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages a user with optional organization membership. Supports adding users as members or owners of organizations.
-
-        **Note:** InfluxDB Cloud doesn't let you manage user passwords through the API. Use the InfluxDB Cloud user interface (UI) to update your password.
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

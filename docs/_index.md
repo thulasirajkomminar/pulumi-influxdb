@@ -26,7 +26,7 @@ The InfluxDB provider must be configured with credentials to deploy and update r
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as influxdb from "@komminarlabs/influxdb";
+import * as influxdb from "@thulasirajkomminar/influxdb";
 
 // Create a new Bucket
 export const orgId = influxdb.getOrganizationOutput({ name: "IoT" }).id;
@@ -46,7 +46,7 @@ export const bucketId = bucket.id;
 {{% choosable language python %}}
 
 ```python
-import komminarlabs_influxdb as influxdb
+import thulasirajkomminar_influxdb as influxdb
 
 org_id = influxdb.get_organization(name="IoT").id
 
@@ -64,7 +64,7 @@ bucket = influxdb.Bucket(
 
 ```go
 import (
-	influxdb "github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb"
+	influxdb "github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 

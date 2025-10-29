@@ -30,7 +30,8 @@ class BucketArgs:
         :param pulumi.Input[builtins.str] org_id: An organization ID.
         :param pulumi.Input[builtins.str] description: A description of the bucket.
         :param pulumi.Input[builtins.str] name: A Bucket name.
-        :param pulumi.Input[builtins.int] retention_period: The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        :param pulumi.Input[builtins.int] retention_period: The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+               represents infinite retention.
         :param pulumi.Input[builtins.str] type: The Bucket type. Valid values are `user` or `system`.
         """
         pulumi.set(__self__, "org_id", org_id)
@@ -83,7 +84,8 @@ class BucketArgs:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+        represents infinite retention.
         """
         return pulumi.get(self, "retention_period")
 
@@ -120,7 +122,8 @@ class _BucketState:
         :param pulumi.Input[builtins.str] description: A description of the bucket.
         :param pulumi.Input[builtins.str] name: A Bucket name.
         :param pulumi.Input[builtins.str] org_id: An organization ID.
-        :param pulumi.Input[builtins.int] retention_period: The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        :param pulumi.Input[builtins.int] retention_period: The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+               represents infinite retention.
         :param pulumi.Input[builtins.str] type: The Bucket type. Valid values are `user` or `system`.
         :param pulumi.Input[builtins.str] updated_at: Last bucket update date.
         """
@@ -191,7 +194,8 @@ class _BucketState:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+        represents infinite retention.
         """
         return pulumi.get(self, "retention_period")
 
@@ -237,14 +241,14 @@ class Bucket(pulumi.CustomResource):
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Creates and manages a bucket.
-
+        Create a Bucket resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: A description of the bucket.
         :param pulumi.Input[builtins.str] name: A Bucket name.
         :param pulumi.Input[builtins.str] org_id: An organization ID.
-        :param pulumi.Input[builtins.int] retention_period: The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        :param pulumi.Input[builtins.int] retention_period: The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+               represents infinite retention.
         :param pulumi.Input[builtins.str] type: The Bucket type. Valid values are `user` or `system`.
         """
         ...
@@ -254,8 +258,7 @@ class Bucket(pulumi.CustomResource):
                  args: BucketArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages a bucket.
-
+        Create a Bucket resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,7 +325,8 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the bucket.
         :param pulumi.Input[builtins.str] name: A Bucket name.
         :param pulumi.Input[builtins.str] org_id: An organization ID.
-        :param pulumi.Input[builtins.int] retention_period: The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        :param pulumi.Input[builtins.int] retention_period: The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+               represents infinite retention.
         :param pulumi.Input[builtins.str] type: The Bucket type. Valid values are `user` or `system`.
         :param pulumi.Input[builtins.str] updated_at: Last bucket update date.
         """
@@ -375,7 +379,8 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[builtins.int]:
         """
-        The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+        The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+        represents infinite retention.
         """
         return pulumi.get(self, "retention_period")
 

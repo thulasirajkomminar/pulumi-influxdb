@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// List all task.
 func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.InvokeOption) (*LookupTaskResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTaskResult
@@ -24,50 +23,30 @@ func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getTask.
 type LookupTaskArgs struct {
-	// The task ID.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getTask.
 type LookupTaskResult struct {
-	// The authorization ID. Specifies the authorization used when the task communicates with the query engine.
-	AuthorizationId string `pulumi:"authorizationId"`
-	// The timestamp when the task was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// The Cron expression that defines the schedule on which the task runs. InfluxDB uses the system time when evaluating Cron expressions.
-	Cron string `pulumi:"cron"`
-	// The description of the task.
-	Description string `pulumi:"description"`
-	// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
-	Every string `pulumi:"every"`
-	// The Flux script that the task executes.
-	Flux string `pulumi:"flux"`
-	// The task ID.
-	Id string `pulumi:"id"`
-	// The labels associated with the task.
-	Labels []GetTaskLabel `pulumi:"labels"`
-	// The error message from the last task run, if any.
-	LastRunError string `pulumi:"lastRunError"`
-	// The status of the last task run.
-	LastRunStatus string `pulumi:"lastRunStatus"`
-	// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
-	LatestCompleted string `pulumi:"latestCompleted"`
-	// Links related to the task.
-	Links GetTaskLinks `pulumi:"links"`
-	// The name of the task.
-	Name string `pulumi:"name"`
-	// The duration to delay execution of the task after the scheduled time has elapsed. 0 removes the offset.
-	Offset string `pulumi:"offset"`
-	// The organization name. Specifies the organization that owns the task.
-	Org string `pulumi:"org"`
-	// The organization ID. Specifies the organization that owns the task.
-	OrgId string `pulumi:"orgId"`
-	// The user ID. Specifies the owner of the task.
-	OwnerId string `pulumi:"ownerId"`
-	// The status of the task (`active` or `inactive`).
-	Status string `pulumi:"status"`
-	// The timestamp when the task was last updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	AuthorizationId string         `pulumi:"authorizationId"`
+	CreatedAt       string         `pulumi:"createdAt"`
+	Cron            string         `pulumi:"cron"`
+	Description     string         `pulumi:"description"`
+	Every           string         `pulumi:"every"`
+	Flux            string         `pulumi:"flux"`
+	Id              string         `pulumi:"id"`
+	Labels          []GetTaskLabel `pulumi:"labels"`
+	LastRunError    string         `pulumi:"lastRunError"`
+	LastRunStatus   string         `pulumi:"lastRunStatus"`
+	LatestCompleted string         `pulumi:"latestCompleted"`
+	Links           GetTaskLinks   `pulumi:"links"`
+	Name            string         `pulumi:"name"`
+	Offset          string         `pulumi:"offset"`
+	Org             string         `pulumi:"org"`
+	OrgId           string         `pulumi:"orgId"`
+	OwnerId         string         `pulumi:"ownerId"`
+	Status          string         `pulumi:"status"`
+	UpdatedAt       string         `pulumi:"updatedAt"`
 }
 
 func LookupTaskOutput(ctx *pulumi.Context, args LookupTaskOutputArgs, opts ...pulumi.InvokeOption) LookupTaskResultOutput {
@@ -81,7 +60,6 @@ func LookupTaskOutput(ctx *pulumi.Context, args LookupTaskOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getTask.
 type LookupTaskOutputArgs struct {
-	// The task ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -104,97 +82,78 @@ func (o LookupTaskResultOutput) ToLookupTaskResultOutputWithContext(ctx context.
 	return o
 }
 
-// The authorization ID. Specifies the authorization used when the task communicates with the query engine.
 func (o LookupTaskResultOutput) AuthorizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.AuthorizationId }).(pulumi.StringOutput)
 }
 
-// The timestamp when the task was created.
 func (o LookupTaskResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The Cron expression that defines the schedule on which the task runs. InfluxDB uses the system time when evaluating Cron expressions.
 func (o LookupTaskResultOutput) Cron() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Cron }).(pulumi.StringOutput)
 }
 
-// The description of the task.
 func (o LookupTaskResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
 func (o LookupTaskResultOutput) Every() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Every }).(pulumi.StringOutput)
 }
 
-// The Flux script that the task executes.
 func (o LookupTaskResultOutput) Flux() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Flux }).(pulumi.StringOutput)
 }
 
-// The task ID.
 func (o LookupTaskResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The labels associated with the task.
 func (o LookupTaskResultOutput) Labels() GetTaskLabelArrayOutput {
 	return o.ApplyT(func(v LookupTaskResult) []GetTaskLabel { return v.Labels }).(GetTaskLabelArrayOutput)
 }
 
-// The error message from the last task run, if any.
 func (o LookupTaskResultOutput) LastRunError() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.LastRunError }).(pulumi.StringOutput)
 }
 
-// The status of the last task run.
 func (o LookupTaskResultOutput) LastRunStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.LastRunStatus }).(pulumi.StringOutput)
 }
 
-// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
 func (o LookupTaskResultOutput) LatestCompleted() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.LatestCompleted }).(pulumi.StringOutput)
 }
 
-// Links related to the task.
 func (o LookupTaskResultOutput) Links() GetTaskLinksOutput {
 	return o.ApplyT(func(v LookupTaskResult) GetTaskLinks { return v.Links }).(GetTaskLinksOutput)
 }
 
-// The name of the task.
 func (o LookupTaskResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The duration to delay execution of the task after the scheduled time has elapsed. 0 removes the offset.
 func (o LookupTaskResultOutput) Offset() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Offset }).(pulumi.StringOutput)
 }
 
-// The organization name. Specifies the organization that owns the task.
 func (o LookupTaskResultOutput) Org() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Org }).(pulumi.StringOutput)
 }
 
-// The organization ID. Specifies the organization that owns the task.
 func (o LookupTaskResultOutput) OrgId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.OrgId }).(pulumi.StringOutput)
 }
 
-// The user ID. Specifies the owner of the task.
 func (o LookupTaskResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The status of the task (`active` or `inactive`).
 func (o LookupTaskResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The timestamp when the task was last updated.
 func (o LookupTaskResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

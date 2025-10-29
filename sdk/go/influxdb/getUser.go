@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Retrieves a user.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult
@@ -24,24 +23,17 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// The user ID.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// The user ID.
-	Id string `pulumi:"id"`
-	// The user name.
-	Name string `pulumi:"name"`
-	// The organization ID that the user belongs to. Null if the user is not a member of any organization.
-	OrgId string `pulumi:"orgId"`
-	// The role of the user in the organization (`member` or `owner`). Null if the user is not a member of any organization.
-	OrgRole string `pulumi:"orgRole"`
-	// The password of the user. This will be always `null`.
+	Id       string `pulumi:"id"`
+	Name     string `pulumi:"name"`
+	OrgId    string `pulumi:"orgId"`
+	OrgRole  string `pulumi:"orgRole"`
 	Password string `pulumi:"password"`
-	// The status of a user.
-	Status string `pulumi:"status"`
+	Status   string `pulumi:"status"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -55,7 +47,6 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// The user ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -78,32 +69,26 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// The user ID.
 func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The user name.
 func (o LookupUserResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The organization ID that the user belongs to. Null if the user is not a member of any organization.
 func (o LookupUserResultOutput) OrgId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.OrgId }).(pulumi.StringOutput)
 }
 
-// The role of the user in the organization (`member` or `owner`). Null if the user is not a member of any organization.
 func (o LookupUserResultOutput) OrgRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.OrgRole }).(pulumi.StringOutput)
 }
 
-// The password of the user. This will be always `null`.
 func (o LookupUserResultOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The status of a user.
 func (o LookupUserResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Status }).(pulumi.StringOutput)
 }

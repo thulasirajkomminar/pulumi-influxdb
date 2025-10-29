@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetUser
     {
-        /// <summary>
-        /// Retrieves a user.
-        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("influxdb:index/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a user.
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("influxdb:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a user.
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("influxdb:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
@@ -34,9 +25,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The user ID.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -48,9 +36,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The user ID.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -64,29 +49,11 @@ namespace KomminarLabs.InfluxDB
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// The user ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The user name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The organization ID that the user belongs to. Null if the user is not a member of any organization.
-        /// </summary>
         public readonly string OrgId;
-        /// <summary>
-        /// The role of the user in the organization (`member` or `owner`). Null if the user is not a member of any organization.
-        /// </summary>
         public readonly string OrgRole;
-        /// <summary>
-        /// The password of the user. This will be always `null`.
-        /// </summary>
         public readonly string Password;
-        /// <summary>
-        /// The status of a user.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

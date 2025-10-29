@@ -8,11 +8,10 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Creates and manages a bucket.
 type Bucket struct {
 	pulumi.CustomResourceState
 
@@ -24,7 +23,8 @@ type Bucket struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An organization ID.
 	OrgId pulumi.StringOutput `pulumi:"orgId"`
-	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+	// represents infinite retention.
 	RetentionPeriod pulumi.IntOutput `pulumi:"retentionPeriod"`
 	// The Bucket type. Valid values are `user` or `system`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -73,7 +73,8 @@ type bucketState struct {
 	Name *string `pulumi:"name"`
 	// An organization ID.
 	OrgId *string `pulumi:"orgId"`
-	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+	// represents infinite retention.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The Bucket type. Valid values are `user` or `system`.
 	Type *string `pulumi:"type"`
@@ -90,7 +91,8 @@ type BucketState struct {
 	Name pulumi.StringPtrInput
 	// An organization ID.
 	OrgId pulumi.StringPtrInput
-	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+	// represents infinite retention.
 	RetentionPeriod pulumi.IntPtrInput
 	// The Bucket type. Valid values are `user` or `system`.
 	Type pulumi.StringPtrInput
@@ -109,7 +111,8 @@ type bucketArgs struct {
 	Name *string `pulumi:"name"`
 	// An organization ID.
 	OrgId string `pulumi:"orgId"`
-	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+	// represents infinite retention.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The Bucket type. Valid values are `user` or `system`.
 	Type *string `pulumi:"type"`
@@ -123,7 +126,8 @@ type BucketArgs struct {
 	Name pulumi.StringPtrInput
 	// An organization ID.
 	OrgId pulumi.StringInput
-	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+	// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+	// represents infinite retention.
 	RetentionPeriod pulumi.IntPtrInput
 	// The Bucket type. Valid values are `user` or `system`.
 	Type pulumi.StringPtrInput
@@ -236,7 +240,8 @@ func (o BucketOutput) OrgId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.OrgId }).(pulumi.StringOutput)
 }
 
-// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+// The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+// represents infinite retention.
 func (o BucketOutput) RetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.IntOutput { return v.RetentionPeriod }).(pulumi.IntOutput)
 }

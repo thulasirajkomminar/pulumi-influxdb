@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates and manages a bucket.
- */
 export class Bucket extends pulumi.CustomResource {
     /**
      * Get an existing Bucket resource's state with the given name, ID, and optional extra
@@ -52,7 +49,8 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly orgId!: pulumi.Output<string>;
     /**
-     * The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+     * The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+     * represents infinite retention.
      */
     public readonly retentionPeriod!: pulumi.Output<number>;
     /**
@@ -123,7 +121,8 @@ export interface BucketState {
      */
     orgId?: pulumi.Input<string>;
     /**
-     * The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+     * The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+     * represents infinite retention.
      */
     retentionPeriod?: pulumi.Input<number>;
     /**
@@ -153,7 +152,8 @@ export interface BucketArgs {
      */
     orgId: pulumi.Input<string>;
     /**
-     * The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0` represents infinite retention.
+     * The duration in seconds for how long data will be kept in the database. The default duration is `2592000` (30 days). `0`
+     * represents infinite retention.
      */
     retentionPeriod?: pulumi.Input<number>;
     /**

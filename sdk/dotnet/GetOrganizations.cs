@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetOrganizations
     {
-        /// <summary>
-        /// Lists organizations. InfluxDB returns all organizations.
-        /// </summary>
         public static Task<GetOrganizationsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationsResult>("influxdb:index/getOrganizations:getOrganizations", InvokeArgs.Empty, options.WithDefaults());
 
-        /// <summary>
-        /// Lists organizations. InfluxDB returns all organizations.
-        /// </summary>
         public static Output<GetOrganizationsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationsResult>("influxdb:index/getOrganizations:getOrganizations", InvokeArgs.Empty, options.WithDefaults());
 
-        /// <summary>
-        /// Lists organizations. InfluxDB returns all organizations.
-        /// </summary>
         public static Output<GetOrganizationsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationsResult>("influxdb:index/getOrganizations:getOrganizations", InvokeArgs.Empty, options.WithDefaults());
     }

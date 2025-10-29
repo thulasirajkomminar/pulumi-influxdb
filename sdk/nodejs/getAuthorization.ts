@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves an authorization. Use this data source to retrieve information about an API token, including the token's permissions and the user that the token is scoped to.
- */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("influxdb:index/getAuthorization:getAuthorization", {
@@ -20,9 +17,6 @@ export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getAuthorization.
  */
 export interface GetAuthorizationArgs {
-    /**
-     * The authorization ID.
-     */
     id: string;
 }
 
@@ -30,54 +24,18 @@ export interface GetAuthorizationArgs {
  * A collection of values returned by getAuthorization.
  */
 export interface GetAuthorizationResult {
-    /**
-     * Authorization creation date.
-     */
     readonly createdAt: string;
-    /**
-     * A description of the token.
-     */
     readonly description: string;
-    /**
-     * The authorization ID.
-     */
     readonly id: string;
-    /**
-     * Organization name. Specifies the organization that owns the authorization.
-     */
     readonly org: string;
-    /**
-     * An organization ID. Specifies the organization that owns the authorization.
-     */
     readonly orgId: string;
-    /**
-     * A list of permissions for an authorization.
-     */
     readonly permissions: outputs.GetAuthorizationPermission[];
-    /**
-     * Status of the token.
-     */
     readonly status: string;
-    /**
-     * The API token.
-     */
     readonly token: string;
-    /**
-     * Last Authorization update date.
-     */
     readonly updatedAt: string;
-    /**
-     * A user name. Specifies the user that the authorization is scoped to.
-     */
     readonly user: string;
-    /**
-     * A user ID. Specifies the user that the authorization is scoped to.
-     */
     readonly userId: string;
 }
-/**
- * Retrieves an authorization. Use this data source to retrieve information about an API token, including the token's permissions and the user that the token is scoped to.
- */
 export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("influxdb:index/getAuthorization:getAuthorization", {
@@ -89,8 +47,5 @@ export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: 
  * A collection of arguments for invoking getAuthorization.
  */
 export interface GetAuthorizationOutputArgs {
-    /**
-     * The authorization ID.
-     */
     id: pulumi.Input<string>;
 }

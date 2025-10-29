@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Creates and manages an authorization and returns the authorization with the generated API token. Use this resource to create/manage an authorization, which generates an API token with permissions to read or write to a specific resource or type of resource.
- */
 export class Authorization extends pulumi.CustomResource {
     /**
      * Get an existing Authorization resource's state with the given name, ID, and optional extra

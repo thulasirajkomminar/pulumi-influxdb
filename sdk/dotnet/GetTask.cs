@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetTask
     {
-        /// <summary>
-        /// List all task.
-        /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("influxdb:index/getTask:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// List all task.
-        /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("influxdb:index/getTask:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// List all task.
-        /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("influxdb:index/getTask:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
     }
@@ -34,9 +25,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetTaskArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The task ID.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -48,9 +36,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetTaskInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The task ID.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -64,81 +49,24 @@ namespace KomminarLabs.InfluxDB
     [OutputType]
     public sealed class GetTaskResult
     {
-        /// <summary>
-        /// The authorization ID. Specifies the authorization used when the task communicates with the query engine.
-        /// </summary>
         public readonly string AuthorizationId;
-        /// <summary>
-        /// The timestamp when the task was created.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// The Cron expression that defines the schedule on which the task runs. InfluxDB uses the system time when evaluating Cron expressions.
-        /// </summary>
         public readonly string Cron;
-        /// <summary>
-        /// The description of the task.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
-        /// </summary>
         public readonly string Every;
-        /// <summary>
-        /// The Flux script that the task executes.
-        /// </summary>
         public readonly string Flux;
-        /// <summary>
-        /// The task ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The labels associated with the task.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskLabelResult> Labels;
-        /// <summary>
-        /// The error message from the last task run, if any.
-        /// </summary>
         public readonly string LastRunError;
-        /// <summary>
-        /// The status of the last task run.
-        /// </summary>
         public readonly string LastRunStatus;
-        /// <summary>
-        /// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
-        /// </summary>
         public readonly string LatestCompleted;
-        /// <summary>
-        /// Links related to the task.
-        /// </summary>
         public readonly Outputs.GetTaskLinksResult Links;
-        /// <summary>
-        /// The name of the task.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The duration to delay execution of the task after the scheduled time has elapsed. 0 removes the offset.
-        /// </summary>
         public readonly string Offset;
-        /// <summary>
-        /// The organization name. Specifies the organization that owns the task.
-        /// </summary>
         public readonly string Org;
-        /// <summary>
-        /// The organization ID. Specifies the organization that owns the task.
-        /// </summary>
         public readonly string OrgId;
-        /// <summary>
-        /// The user ID. Specifies the owner of the task.
-        /// </summary>
         public readonly string OwnerId;
-        /// <summary>
-        /// The status of the task (`active` or `inactive`).
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// The timestamp when the task was last updated.
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

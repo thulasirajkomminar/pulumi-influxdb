@@ -8,101 +8,10 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Creates and manages a task using Flux scripts with task options.
-//
-// ## Task Configuration
-//
-// Tasks are configured using Flux scripts that include an `option task` block. All task configuration, including scheduling, is defined within the Flux script itself. For more information on Flux scripts and task options, refer to the [InfluxDB documentation on tasks](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task).
-//
-// ### Task Options in Flux
-//
-// The Flux script must include an `option task` block that defines the task's behavior. For detailed information about all available task options, see the [InfluxDB documentation on defining task options](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#define-task-options).
-//
-// **Example configuration with cron scheduling:**
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := influxdb.NewTask(ctx, "example_cron", &influxdb.TaskArgs{
-//				OrgId: pulumi.Any(orgId),
-//				Flux: pulumi.String(`option task = {
-//	  name: "Daily Processing Task",
-//	  cron: "0 0 * * *",        # Run daily at midnight
-//	  offset: 30s,              # Delay execution by 30 seconds
-//	}
-//
-// from(bucket: "my-bucket")
-//
-//	|> range(start: -24h)
-//	|> filter(fn: (r) => r._measurement == "temperature")
-//	|> mean()
-//	|> to(bucket: "daily-averages")
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// **Example configuration with interval scheduling:**
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := influxdb.NewTask(ctx, "example_interval", &influxdb.TaskArgs{
-//				OrgId: pulumi.Any(orgId),
-//				Flux: pulumi.String(`option task = {
-//	  name: "Hourly Processing Task",
-//	  every: 1h,                # Run every hour
-//	  offset: 10m,              # Start 10 minutes into each hour
-//	}
-//
-// from(bucket: "my-bucket")
-//
-//	|> range(start: -1h)
-//	|> filter(fn: (r) => r._measurement == "cpu")
-//	|> mean()
-//	|> to(bucket: "hourly-stats")
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Task struct {
 	pulumi.CustomResourceState
 
@@ -114,9 +23,11 @@ type Task struct {
 	Cron pulumi.StringOutput `pulumi:"cron"`
 	// The description of the task.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+	// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+	// the task runs. every also determines when the task first runs, depending on the specified time.
 	Every pulumi.StringOutput `pulumi:"every"`
-	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+	// executes.
 	Flux pulumi.StringOutput `pulumi:"flux"`
 	// The labels associated with the task.
 	Labels TaskLabelArrayOutput `pulumi:"labels"`
@@ -124,7 +35,8 @@ type Task struct {
 	LastRunError pulumi.StringOutput `pulumi:"lastRunError"`
 	// The status of the last task run.
 	LastRunStatus pulumi.StringOutput `pulumi:"lastRunStatus"`
-	// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+	// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+	// the latest scheduled and completed run.
 	LatestCompleted pulumi.StringOutput `pulumi:"latestCompleted"`
 	// Links related to the task.
 	Links TaskLinksOutput `pulumi:"links"`
@@ -188,9 +100,11 @@ type taskState struct {
 	Cron *string `pulumi:"cron"`
 	// The description of the task.
 	Description *string `pulumi:"description"`
-	// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+	// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+	// the task runs. every also determines when the task first runs, depending on the specified time.
 	Every *string `pulumi:"every"`
-	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+	// executes.
 	Flux *string `pulumi:"flux"`
 	// The labels associated with the task.
 	Labels []TaskLabel `pulumi:"labels"`
@@ -198,7 +112,8 @@ type taskState struct {
 	LastRunError *string `pulumi:"lastRunError"`
 	// The status of the last task run.
 	LastRunStatus *string `pulumi:"lastRunStatus"`
-	// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+	// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+	// the latest scheduled and completed run.
 	LatestCompleted *string `pulumi:"latestCompleted"`
 	// Links related to the task.
 	Links *TaskLinks `pulumi:"links"`
@@ -227,9 +142,11 @@ type TaskState struct {
 	Cron pulumi.StringPtrInput
 	// The description of the task.
 	Description pulumi.StringPtrInput
-	// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+	// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+	// the task runs. every also determines when the task first runs, depending on the specified time.
 	Every pulumi.StringPtrInput
-	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+	// executes.
 	Flux pulumi.StringPtrInput
 	// The labels associated with the task.
 	Labels TaskLabelArrayInput
@@ -237,7 +154,8 @@ type TaskState struct {
 	LastRunError pulumi.StringPtrInput
 	// The status of the last task run.
 	LastRunStatus pulumi.StringPtrInput
-	// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+	// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+	// the latest scheduled and completed run.
 	LatestCompleted pulumi.StringPtrInput
 	// Links related to the task.
 	Links TaskLinksPtrInput
@@ -262,7 +180,8 @@ func (TaskState) ElementType() reflect.Type {
 }
 
 type taskArgs struct {
-	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+	// executes.
 	Flux string `pulumi:"flux"`
 	// The organization ID. Specifies the organization that owns the task.
 	OrgId string `pulumi:"orgId"`
@@ -272,7 +191,8 @@ type taskArgs struct {
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
-	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+	// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+	// executes.
 	Flux pulumi.StringInput
 	// The organization ID. Specifies the organization that owns the task.
 	OrgId pulumi.StringInput
@@ -387,12 +307,14 @@ func (o TaskOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which the task runs. every also determines when the task first runs, depending on the specified time.
+// The interval [duration literal](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) at which
+// the task runs. every also determines when the task first runs, depending on the specified time.
 func (o TaskOutput) Every() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Every }).(pulumi.StringOutput)
 }
 
-// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task executes.
+// The [Flux script](https://docs.influxdata.com/influxdb/v2/process-data/get-started/#components-of-a-task) that the task
+// executes.
 func (o TaskOutput) Flux() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Flux }).(pulumi.StringOutput)
 }
@@ -412,7 +334,8 @@ func (o TaskOutput) LastRunStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.LastRunStatus }).(pulumi.StringOutput)
 }
 
-// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of the latest scheduled and completed run.
+// A timestamp [RFC3339 date/time format](https://docs.influxdata.com/influxdb/v2/reference/glossary/#rfc3339-timestamp) of
+// the latest scheduled and completed run.
 func (o TaskOutput) LatestCompleted() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.LatestCompleted }).(pulumi.StringOutput)
 }

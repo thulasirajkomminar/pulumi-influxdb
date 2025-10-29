@@ -30,10 +30,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import komminarlabs_influxdb.config as __config
+    import thulasirajkomminar_influxdb.config as __config
     config = __config
 else:
-    config = _utilities.lazy_import('komminarlabs_influxdb.config')
+    config = _utilities.lazy_import('thulasirajkomminar_influxdb.config')
 
 _utilities.register(
     resource_modules="""
@@ -41,7 +41,7 @@ _utilities.register(
  {
   "pkg": "influxdb",
   "mod": "index/authorization",
-  "fqn": "komminarlabs_influxdb",
+  "fqn": "thulasirajkomminar_influxdb",
   "classes": {
    "influxdb:index/authorization:Authorization": "Authorization"
   }
@@ -49,7 +49,7 @@ _utilities.register(
  {
   "pkg": "influxdb",
   "mod": "index/bucket",
-  "fqn": "komminarlabs_influxdb",
+  "fqn": "thulasirajkomminar_influxdb",
   "classes": {
    "influxdb:index/bucket:Bucket": "Bucket"
   }
@@ -57,7 +57,7 @@ _utilities.register(
  {
   "pkg": "influxdb",
   "mod": "index/label",
-  "fqn": "komminarlabs_influxdb",
+  "fqn": "thulasirajkomminar_influxdb",
   "classes": {
    "influxdb:index/label:Label": "Label"
   }
@@ -65,7 +65,7 @@ _utilities.register(
  {
   "pkg": "influxdb",
   "mod": "index/organization",
-  "fqn": "komminarlabs_influxdb",
+  "fqn": "thulasirajkomminar_influxdb",
   "classes": {
    "influxdb:index/organization:Organization": "Organization"
   }
@@ -73,7 +73,7 @@ _utilities.register(
  {
   "pkg": "influxdb",
   "mod": "index/task",
-  "fqn": "komminarlabs_influxdb",
+  "fqn": "thulasirajkomminar_influxdb",
   "classes": {
    "influxdb:index/task:Task": "Task"
   }
@@ -81,7 +81,7 @@ _utilities.register(
  {
   "pkg": "influxdb",
   "mod": "index/user",
-  "fqn": "komminarlabs_influxdb",
+  "fqn": "thulasirajkomminar_influxdb",
   "classes": {
    "influxdb:index/user:User": "User"
   }
@@ -93,7 +93,7 @@ _utilities.register(
  {
   "pkg": "influxdb",
   "token": "pulumi:providers:influxdb",
-  "fqn": "komminarlabs_influxdb",
+  "fqn": "thulasirajkomminar_influxdb",
   "class": "Provider"
  }
 ]

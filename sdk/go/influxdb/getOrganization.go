@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
-// Retrieves an organization. Use this data source to retrieve information for a specific organization.
 func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationResult
@@ -24,22 +23,16 @@ func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts 
 
 // A collection of arguments for invoking getOrganization.
 type LookupOrganizationArgs struct {
-	// The name of the organization.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getOrganization.
 type LookupOrganizationResult struct {
-	// Organization creation date.
-	CreatedAt string `pulumi:"createdAt"`
-	// The description of the organization.
+	CreatedAt   string `pulumi:"createdAt"`
 	Description string `pulumi:"description"`
-	// An organization ID.
-	Id string `pulumi:"id"`
-	// The name of the organization.
-	Name string `pulumi:"name"`
-	// Last Organization update date.
-	UpdatedAt string `pulumi:"updatedAt"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+	UpdatedAt   string `pulumi:"updatedAt"`
 }
 
 func LookupOrganizationOutput(ctx *pulumi.Context, args LookupOrganizationOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationResultOutput {
@@ -53,7 +46,6 @@ func LookupOrganizationOutput(ctx *pulumi.Context, args LookupOrganizationOutput
 
 // A collection of arguments for invoking getOrganization.
 type LookupOrganizationOutputArgs struct {
-	// The name of the organization.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -76,27 +68,22 @@ func (o LookupOrganizationResultOutput) ToLookupOrganizationResultOutputWithCont
 	return o
 }
 
-// Organization creation date.
 func (o LookupOrganizationResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The description of the organization.
 func (o LookupOrganizationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// An organization ID.
 func (o LookupOrganizationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the organization.
 func (o LookupOrganizationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Last Organization update date.
 func (o LookupOrganizationResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

@@ -12,7 +12,7 @@ on:
 
 env:
   PROVIDER: influxdb
-  ORG: komminarlabs
+  ORG: thulasirajkomminar
   DOTNETVERSION: |
     6.0.x
     3.1.301

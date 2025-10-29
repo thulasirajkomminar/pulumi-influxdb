@@ -8,25 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace KomminarLabs.InfluxDB
+namespace ThulasirajKomminar.InfluxDB
 {
     public static class GetAuthorization
     {
-        /// <summary>
-        /// Retrieves an authorization. Use this data source to retrieve information about an API token, including the token's permissions and the user that the token is scoped to.
-        /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("influxdb:index/getAuthorization:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves an authorization. Use this data source to retrieve information about an API token, including the token's permissions and the user that the token is scoped to.
-        /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("influxdb:index/getAuthorization:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves an authorization. Use this data source to retrieve information about an API token, including the token's permissions and the user that the token is scoped to.
-        /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("influxdb:index/getAuthorization:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
     }
@@ -34,9 +25,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetAuthorizationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The authorization ID.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -48,9 +36,6 @@ namespace KomminarLabs.InfluxDB
 
     public sealed class GetAuthorizationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The authorization ID.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -64,49 +49,16 @@ namespace KomminarLabs.InfluxDB
     [OutputType]
     public sealed class GetAuthorizationResult
     {
-        /// <summary>
-        /// Authorization creation date.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// A description of the token.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// The authorization ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Organization name. Specifies the organization that owns the authorization.
-        /// </summary>
         public readonly string Org;
-        /// <summary>
-        /// An organization ID. Specifies the organization that owns the authorization.
-        /// </summary>
         public readonly string OrgId;
-        /// <summary>
-        /// A list of permissions for an authorization.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetAuthorizationPermissionResult> Permissions;
-        /// <summary>
-        /// Status of the token.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// The API token.
-        /// </summary>
         public readonly string Token;
-        /// <summary>
-        /// Last Authorization update date.
-        /// </summary>
         public readonly string UpdatedAt;
-        /// <summary>
-        /// A user name. Specifies the user that the authorization is scoped to.
-        /// </summary>
         public readonly string User;
-        /// <summary>
-        /// A user ID. Specifies the user that the authorization is scoped to.
-        /// </summary>
         public readonly string UserId;
 
         [OutputConstructor]

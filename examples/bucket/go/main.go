@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb"
 )
 
 func main() {

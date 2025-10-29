@@ -4,9 +4,9 @@
 package config
 
 import (
-	"github.com/komminarlabs/pulumi-influxdb/sdk/go/influxdb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+	"github.com/thulasirajkomminar/pulumi-influxdb/sdk/go/influxdb/internal"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -21,7 +21,7 @@ func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "influxdb:token")
 }
 
-// The InfluxDB Cloud Dedicated server URL
+// The InfluxDB server URL
 func GetUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "influxdb:url")
 }

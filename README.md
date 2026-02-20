@@ -2,6 +2,16 @@
 
 The InfluxDB Resource Provider lets you manage [InfluxDB](https://www.influxdata.com/) resources.
 
+## ⚠️ Deprecation Notice
+
+This Pulumi provider for **InfluxDB** is **deprecated** and is no longer actively maintained as of **February 2026**.  
+While earlier versions were published, **no further updates, bug fixes, or support will be provided**.
+
+- Existing releases may continue to work, but compatibility with future Pulumi or InfluxDB versions is not guaranteed.  
+- Do **not** use this provider for new projects.  
+- The repository is archived and remains public for reference purposes only.  
+- If you require continued usage, you may **fork the repository** and maintain your own version
+
 ## Supported InfluxDB flavours
 
 ### v3
